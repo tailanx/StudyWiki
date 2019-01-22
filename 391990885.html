@@ -1,0 +1,2584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="referrer" content="always">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-status-bar-style" content="yes">
+  <link href="//csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON" />
+  
+  
+  <script src="//csdnimg.cn/public/common/libs/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="//csdnimg.cn/public/common/libs/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="//csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+  <link rel="stylesheet" href="https://csdnimg.cn/release/bbs/dist/css/application-dc860a2a10.css">
+  <link rel="stylesheet" href="https://csdnimg.cn/release/bbs/dist/css/bbs_new-596906f2c3.css">
+  <script>
+      var CFG = {
+          BASE_URL: "https://csdnimg.cn/release/bbs/dist/",    //当前页面对应的虚拟路径,静态资源对应目录同<base href="">
+          LOCAL_URL:"https://bbs.csdn.net/",
+          API_URL: "https://bbs.csdn.net/",                 //当前项目默认的后端API地址
+          ROOT_URL: "https://bbs.csdn.net/",          //当前项目根路径, JS跳转
+          STATIC_URL: "https://csdnimg.cn/release/bbs/dist/",          //本项目静态资源根目录
+          STATIC_GLOBAL_URL: "https://csdnimg.cn/",    //公共静态资源根目录
+          TOPIC_ID:""
+      }
+  </script>
+  <title>Fragment切换页面时数据消失-CSDN论坛</title>
+  
+  <script>
+      (function(config) {
+          window.AnalysysAgent = window.AnalysysAgent || []
+          window.AnalysysAgent.methods = 'identify alias reset track profileSet profileSetOnce profileIncrement profileAppend profileUnset profileDelete registerSuperProperty registerSuperProperties unRegisterSuperProperty clearSuperProperties getSuperProperty getSuperProperties pageView debugMode auto appkey name uploadURL hash visitorConfigURL autoProfile autoWebstay'.split(' ');
+
+          function factory(b) {
+              return function() {
+                  var a = Array.prototype.slice.call(arguments);
+                  a.unshift(b);
+                  window.AnalysysAgent.push(a);
+                  return window.AnalysysAgent;
+              }
+          };
+          for (var i = 0; i < AnalysysAgent.methods.length; i++) {
+              var key = window.AnalysysAgent.methods[i];
+              AnalysysAgent[key] = factory(key);
+          }
+          for (var key in config) {
+              AnalysysAgent[key](config[key])
+          }
+          var date = new Date();
+          var time = new String(date.getFullYear()) + new String(date.getMonth() + 1) + new String(date.getDate());
+
+          var d = document,
+              c = d.createElement('script'),
+              n = d.getElementsByTagName('script')[0];
+          c.type = 'text/javascript';
+          c.async = true;
+          c.id = 'devSDK';
+          c.src = 'https://csdnimg.cn/release/bbs/AnalysysAgent_JS_SDK.min.js?time1='+ time
+          n.parentNode.insertBefore(c, n);
+      })({
+          appkey: 'csdnbbsstatistics',
+          uploadURL: 'https://report.csdn.net:4089/',
+          debugMode: 2
+
+      })
+  </script>
+</head>
+<body>
+  <script type="text/javascript" src="https://csdnimg.cn/release/bbs/dist/js/libs/libs-f6ec322dc4.js"></script>
+    <!-- 请置于所有广告位代码之前 -->
+  <script src="//dup.baidustatic.com/js/ds.js"></script>
+  <script type="text/javascript">
+    // AnonymousUserLimit currentUserName 前提
+    var currentUserName = "";
+  </script>
+  <script src="//csdnimg.cn/release/bbs/assets/AnonymousUserLimit-7492f7f92beda533e40a50819e77fd1a.js" type="text/javascript"></script>
+  <style>
+    #topic-detail-ad-ul{width:960px;float:left;font-size:1px;margin:0;padding:0}
+    #topic-detail-ad-l{float:left;}
+    #topic-detail-ad-r{float:right;}
+    #topic-detail-ad-ul li{list-style: none;}
+  </style>
+  <script type="text/javascript" src="https://static.mediav.com/js/mvf_news_feed.js"></script>
+  <script type="text/javascript" src="//csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js"></script>
+  <script type="text/javascript" src="https://csdnimg.cn/release/bbs/dist/js/syntaxhighlighter/syntaxhighlighter-fe278769e6.js"></script>
+  <script>
+      CFG.TOPIC_ID = 391990885;
+  </script>
+
+  
+<div class="news-nav">
+  <div class="container">
+    <div class="nav-bar">
+      <a href="/home" class="">论坛首页</a>
+      <span class="dropdown">
+        <a href="javascript:void(0);">精选版块</a>
+        <span class="caret"></span>
+            <div style="background: #eaebec;" class="dropdown-menu">
+              <dl>
+                <dt><a href="/forums/Mobile">移动开发</a></dt>
+                <dd><a href="/forums/ios">iOS</a><a href="/forums/Android">Android</a><a href="/forums/Qt">Qt</a><a href="/forums/WindowsMobile">WP</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="/forums/CloudComputing">云计算</a></dt>
+                <dd><a href="/forums/AWS">IaaS</a><a href="/forums/CloudFoundry">Pass/SaaS</a><a href="/forums/hadoop">分布式计算/Hadoop</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="/forums/Java">Java技术</a></dt>
+                <dd><a href="/forums/J2SE">Java SE</a><a href="/forums/Java_WebDevelop">Java Web 开发</a><a href="/forums/J2EE">Java EE</a><a href="/forums/JavaOther">Java其他相关</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="/forums/DotNET">.NET技术</a></dt>
+                <dd><a href="/forums/DotNETFramework">.NET Framework</a><a href="/forums/CSharp">C#</a><a href="/forums/DotNETAnalysisAndDesign">.NET分析与设计</a><a href="/forums/ASPDotNET">ASP .NET</a><a href="/forums/VBDotNET">VB .NET</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="/forums/WebDevelop">Web开发</a></dt>
+                <dd><a href="/forums/PHP">PHP</a><a href="/forums/JavaScript">JavaScript</a><a href="/forums/ASP">ASP</a><a href="/forums/HTMLCSS">HTML(CSS)</a><a href="/forums/HTML5">HTML5</a><a href="/forums/Apache">Apache</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="#">开发语言/框架</a></dt>
+                <dd><a href="/forums/Delphi">Delphi</a><a href="/forums/VC">VC/MFC</a><a href="/forums/VB">VB</a><a href="/forums/Cpp">C/C++</a><a href="/forums/BCB">C++ Builder</a><a href="/forums/OtherLanguage">其他开发语言</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="#">数据库开发</a></dt>
+                <dd><a href="/forums/MSSQL">MS-SQL Server</a><a href="/forums/Oracle">Oracle</a><a href="/forums/PowerBuilder">PowerBuilder</a><a href="/forums/Informatica">Informatica</a><a href="/forums/OtherDatabase">其他数据库开发</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="/forums/Embedded">硬件/嵌入式开发</a></dt>
+                <dd><a href="/forums/WinCE">嵌入开发(WinCE)</a><a href="/forums/Embedded_driver">驱动开发/核心开发</a><a href="/forums/Embedded_hardware">硬件设计</a><a href="/forums/Embedded_SCM">单片机/工控</a><a href="/forums/ASM">汇编语言</a><a href="/forums/VxWorks">VxWorks开发</a></dd>
+              </dl>
+              <dl>
+                <dt><a href="/forums/Linux">Linux/Unix社区</a></dt>
+                <dd><a href="/forums/Linux_System">系统维护与使用区</a><a href="/forums/Linux_Development">应用程序开发区</a><a href="/forums/Linux_Kernel">内核源代码研究区</a><a href="/forums/Linux_Driver">驱动程序开发区</a><a href="/forums/Linux_Hardware">CPU和硬件区</a></dd>
+              </dl>
+            </div>
+    </span>
+      <a href="/rank" class="">论坛牛人</a>
+      <a href="/total_rank" class="">排行榜</a>
+      <a href="/map" class="">论坛地图</a>
+
+        <a href="/topics/new?forum_id=Android" target="_blank" class="to_post">我要发贴</a>
+
+    </div>
+    <div class="search-download"><a href="/help" style="color: #4f4f4f;" target="_blank" class="help"><i class="fa fa-question-circle"></i>论坛帮助</a></div>
+  </div>
+</div>
+
+<style>
+  #csdn-toolbar .container, .news-nav .container{
+    padding-left: 0 !important;
+    margin: 0 auto !important;
+  }
+  .syntaxhighlighter, .syntaxhighlighter table td.code .container::before{
+    content: unset
+  }
+
+  .container-box{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .container-box .bbs_detail_wrap{
+    float: left;
+  }
+  .bottom-pub-footer{
+    position: relative;
+    z-index: 2;
+  }
+  .right-box{
+    float: right;
+    display: none;
+    margin-top: 29px;
+    width: 300px;
+    margin-left: 8px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    z-index: 1;
+  }
+  .third-list-box{
+    margin-bottom: -8px;
+    background-color: #fff;
+  }
+  .third-list-box dl{
+    padding: 8px 8px 0;
+  }
+  .third-list-box dl:last-child{
+    padding-bottom: 8px;
+  }
+  .third-list-box dl dt a{
+    display: block;
+    font-size: 14px;
+    color: #5c5c5c;
+    letter-spacing: 0;
+    line-height: 20px;
+    max-height: 44px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .third-list-box dl dd{
+    color: #999;
+    font-size: 12px;
+    max-height: 40px;
+    overflow: hidden;
+    line-height: 20px;
+    margin-top: 4px;
+  }
+  @media (min-width: 1410px) {
+    .container-box{
+      width: 1300px
+    }
+    .right-box {
+      display: block;
+    }
+  }
+  @media (max-width: 1409px) {
+    .container-box{
+      width: 960px
+    }
+    .right-box {
+      display: none;
+    }
+  }
+  .persion_article {
+    width: 300px
+  }
+</style>
+<div class="container container-box clearfix">
+  <div id="left-box" style="float: left;width: 960px;">
+    <div class="bbs_detail_wrap" id="bbs_detail_wrap">
+      <div class="flash_messages">
+</div>
+
+      <div class="bbs_bread_wrap">
+        <a href="/" target="_blank">CSDN论坛</a>
+        <span>></span>
+          <a href="/forums/Mobile" target="_blank">移动开发</a>
+          <span>></span>
+        <a href="/forums/Android" target="_blank">Android</a>
+      </div>
+      <!--帖子标题-->
+      <div class="bbs_title_h"></div>
+      <div id="bbs_title_bar" class="bbs_title_bar">
+        <div class="owner_top clearfix">
+          <h3 class="owner_h fl">
+        <span class="owner_title text-overflow" title="Fragment切换页面时数据消失">
+          
+          
+          
+          
+            <span class="title text_overflow">Fragment切换页面时数据消失</span>
+        </span>
+            <span>
+          [问题点数：20分]
+        </span>
+          </h3>
+        </div>
+        <div class="mod_fun_wrap clearfix">
+	<div class="page_wrap fl">
+		<!-- page 开始-->
+		
+		<!-- page 结束-->
+	</div>
+	<ul class="fun_l fr">
+		<li>
+			<input type="hidden" id="bbs_fav_url" value="http://bbs.csdn.net/topics/391990885">
+			<input type="hidden" id="bbs_fav_title" value="Fragment切换页面时数据消失">
+        <a href="javascript:;" data-bind-login = "true" onclick="window.csdn.loginBox.show()" class="fav">收藏帖子</a>
+		</li>
+
+
+			<li><a href="javascript:;" class="menu_a reply_topic" >回复</a></li>
+	</ul>
+
+</div>
+      </div>
+
+      <div id="post-401400762" class="mod_topic_wrap post topic" data-topic-id="391990885" data-post-id="401400762" data-is-topic-locked="false">
+  <dl class="topic_wrap clearfix">
+      <dt class="topic_l ">
+          <div data-username="" class="user_head">
+
+            <a href="//my.csdn.net/qq_35709618" target="_blank" class="user_head_box" rel="nofollow">
+              <img src="//avatar.csdn.net/E/1/D/1_qq_35709618.jpg" class="avatar">
+            </a>
+            <div class="user_material">
+              <div class="user_material_bg">
+                <dl class="user_material_c">
+                  <dt class="fl">
+                    <a href="//my.csdn.net/qq_35709618" target="_blank" class="user_head_box" rel="nofollow">
+                      <img src="//avatar.csdn.net/E/1/D/1_qq_35709618.jpg" class="avatar">
+                    </a>
+                  </dt>
+                    <dd>
+                      <ul class="topic_list">
+                          <li>
+                            <em>&sdot;</em><a href="/topics/391990885" target="_blank">Fragment切换页面时数据消失</a>
+                          </li>
+                      </ul>
+                    </dd>
+                    <dd class="more_topic_wrap">
+                      <a href="/users/qq_35709618/topics" target="_blank" class="more_topic">更多帖子</a></dd>
+                  <dd class="fun_dd">
+                    <a href="javascript:;" class="follow_btn genius_att" data-username="qq_35709618">关注</a>
+                    <!--下面是已关注按钮样式-->
+                    <!--a.al_follow_btn(href="javascript:;") 已关注-->
+                    <a href="//my.csdn.net/qq_35709618" target="_blank">空间</a>
+                    <a href="//blog.csdn.net/qq_35709618" target="_blank">博客</a>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        <div class="user_nick_name">
+          <div class="nick_name"><a href="//my.csdn.net/qq_35709618" rel="nofollow" target="_blank" title="qq_35709618">qq_35709618</a></div>
+          <div class="user_level">
+            <img alt="Bbs1" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs1.png" />
+            <div class="topic_show_posts">
+              <div class="smallTittle">本版专家分：0</div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="showTittleDD">
+        </div>
+        <div class="close_topic">
+          结帖率 0%
+        </div>
+      </dt>
+    <dd class="topic_r post_info floorOwner" data-username="qq_35709618" data-nickname="qq_35709618" data-floor="0">
+      <div class="post_body post_body_min_h">
+          fragment切换页面时本页面的数据不见了，是怎么回事，有木有大神指点迷津
+
+
+          <div marginwidth="0" marginheight="0" scrolling="no" width="100%">
+              <div>
+                <div id="kp_box_87" data-pid="87" data-track-view='{"mod":"kp_popu_87-112","con":",,"}' data-track-click='{"mod":"kp_popu_87-112","con":",,"}'><div>
+<script type="text/javascript" src="http://static.mediav.com/js/mvf_news_feed.js"></script>
+            <div id="placeholder" class="mediav_ad" ></div>
+            <script type="text/javascript">
+            NEWS_FEED({
+                w:728,//必须大于300
+                showid : '0UvTI1',
+                placeholderId : 'placeholder',//容器ID
+                fId : '',//信息流容器ID
+                inject : 'cads'
+            })
+                        </script>
+                </div></div>
+              </div>
+          </div>
+        <div class="question_wrap"><span>问题点数：</span><em>20分</em></div>
+      </div>
+      <div class="control clearfix">
+        <div class="control_l fl">
+          <label onclick="post_digg(391990885,401400762,this)" class="red_praise digg">
+            <svg aria-hidden="true" class="icon praise">
+              <use xlink:href="#csdnc-thumbsup"></use>
+            </svg>
+            <em>0</em>
+          </label>
+          <label class="date_time">2016-07-26 16:39:40</label>
+          <span class="reply_intro">回复次数</span><em class="reply_num">7</em>
+        </div>
+        <div class="control_r fr">
+            <a href="/topics/391990885?list=lz" class="only-filter">只看楼主</a>
+          <span>・</span>
+          <a href="javascript:;" rel="nofollow" class="quote">引用</a>
+          <span>・</span>
+          <a href="javascript:;" class="report_spam">举报</a>
+          <span>・</span>
+          <span class="floor">楼主</span>
+        </div>
+      </div>
+    </dd>
+  </dl>
+</div>
+
+
+      		<div id="post-401402758" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401402758" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l no_head">
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/adfldk" rel="nofollow" target="_blank" title="adfldk">adfldk</a></div>
+								<div class="user_level">
+									<img alt="Bbs4" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs4.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：1278</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb72" data-username="adfldk" data-nickname="adfldk" data-floor="1">
+					<div class="post_body post_body_min_h">
+							是不是几个页面相互切换&nbsp;显示空白页？
+
+							<div>
+								
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401402758,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-07-27 09:31:53</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=63178594" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#1&nbsp;得分：0</span>
+						</div>
+					</div>
+						<div class="post_recommend" data-track-view='{"mod":"popu_592","con":",https://blog.csdn.net/u011277123/article/details/53943189,BlogCommendFromQuerySearch_97"}' data-track-click='{"mod":"popu_592","con":",https://blog.csdn.net/u011277123/article/details/53943189,BlogCommendFromQuerySearch_97"}'>
+							<span class="recommend_tit">CSDN推荐</span>
+							<a href="https://blog.csdn.net/u011277123/article/details/53943189" target="_blank" title="安卓任意两个或多个Fragment之间的交互与刷新界面">安卓任意两个或多个Fragment之间的交互与刷新界面</a>
+						</div>
+				</dd>
+			</dl>
+		</div>
+		<div id="post-401404375" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401404375" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l no_head">
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/qq_26763799" rel="nofollow" target="_blank" title="qq_26763799">qq_26763799</a></div>
+								<div class="user_level">
+									<img alt="Bbs4" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs4.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：1958</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb72" data-username="qq_26763799" data-nickname="qq_26763799" data-floor="2">
+					<div class="post_body post_body_min_h">
+							GC回收了？什么机子，什么rom，切换fragment的功夫就回收了？
+
+							<div>
+								
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401404375,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-07-27 13:47:32</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=50225753" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#2&nbsp;得分：0</span>
+						</div>
+					</div>
+						<div class="post_recommend" data-track-view='{"mod":"popu_592","con":",https://blog.csdn.net/lvwenbo0107/article/details/52539829,BlogCommendFromQuerySearch_96"}' data-track-click='{"mod":"popu_592","con":",https://blog.csdn.net/lvwenbo0107/article/details/52539829,BlogCommendFromQuerySearch_96"}'>
+							<span class="recommend_tit">CSDN推荐</span>
+							<a href="https://blog.csdn.net/lvwenbo0107/article/details/52539829" target="_blank" title="ViewPager 懒加载 导致的数据错乱问题">ViewPager 懒加载 导致的数据错乱问题</a>
+						</div>
+				</dd>
+			</dl>
+		</div>
+		<div id="post-401404480" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401404480" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l no_head">
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/qq_27614457" rel="nofollow" target="_blank" title="qq_27614457">qq_27614457</a></div>
+								<div class="user_level">
+									<img alt="Bbs1" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs1.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：0</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb72" data-username="qq_27614457" data-nickname="qq_27614457" data-floor="3">
+					<div class="post_body post_body_min_h">
+							最好贴下代码
+
+							<div>
+								
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401404480,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-07-27 14:00:06</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=51445151" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#3&nbsp;得分：0</span>
+						</div>
+					</div>
+						<div class="post_recommend" data-track-view='{"mod":"popu_592","con":",https://blog.csdn.net/jdsjlzx/article/details/41211243,BlogCommendFromQuerySearch_95"}' data-track-click='{"mod":"popu_592","con":",https://blog.csdn.net/jdsjlzx/article/details/41211243,BlogCommendFromQuerySearch_95"}'>
+							<span class="recommend_tit">CSDN推荐</span>
+							<a href="https://blog.csdn.net/jdsjlzx/article/details/41211243" target="_blank" title="Android 关于fragment切换重新加载的解决分享给大家">Android 关于fragment切换重新加载的解决分享给大家</a>
+						</div>
+				</dd>
+			</dl>
+		</div>
+		<div id="post-401405164" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401405164" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l ">
+								<div data-username="" class="user_head">
+
+									<a href="//my.csdn.net/tellmewhyto" target="_blank" class="user_head_box" rel="nofollow">
+										<img src="//avatar.csdn.net/B/2/E/1_tellmewhyto.jpg" class="avatar" >
+									</a>
+									<div class="user_material">
+										<div class="user_material_bg">
+											<dl class="user_material_c">
+												<dt class="fl">
+													<a href="//my.csdn.net/tellmewhyto" target="_blank" class="user_head_box" rel="nofollow">
+														<img src="//avatar.csdn.net/B/2/E/1_tellmewhyto.jpg" class="avatar" >
+													</a>
+												</dt>
+													<dd>
+														<ul class="topic_list">
+																<li><em>&sdot;</em><a href="/topics/392010154" target="_blank">在red hat中设置小企鹅输入法</a></li>
+														</ul>
+													</dd>
+													<dd class="more_topic_wrap"><a href="/users/tellmewhyto/topics" target="_blank" class="more_topic">更多帖子</a></dd>
+												<dd class="fun_dd">
+													<a href="javascript:;" class="follow_btn genius_att" data-username="tellmewhyto">关注</a>
+													<!--下面是已关注按钮样式-->
+													<!--a.al_follow_btn(href="javascript:;") 已关注-->
+													<a href="//my.csdn.net/tellmewhyto" target="_blank">空间</a>
+													<a href="//blog.csdn.net/tellmewhyto" target="_blank">博客</a>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/tellmewhyto" rel="nofollow" target="_blank" title="IT行业学习者">IT行业学习者</a></div>
+								<div class="user_level">
+									<img alt="Bbs1" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs1.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：0</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb72" data-username="tellmewhyto" data-nickname="IT行业学习者" data-floor="4">
+					<div class="post_body post_body_min_h">
+							fragment在切换页面的时候<br />
+FragmentTransaction&nbsp;ft&nbsp;=&nbsp;fm.beginTransaction();&nbsp;&nbsp;&nbsp;&nbsp;<br />
+中间实现一些具体的操作，你看下你实现操作的时候是用来哪一种方法？<br />
+ft.commit();
+
+							<div>
+								
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401405164,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-07-27 15:31:20</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=61056939" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#4&nbsp;得分：0</span>
+						</div>
+					</div>
+						<div class="post_recommend" data-track-view='{"mod":"popu_592","con":",https://blog.csdn.net/leelit/article/details/41310307,BlogCommendFromQuerySearch_94"}' data-track-click='{"mod":"popu_592","con":",https://blog.csdn.net/leelit/article/details/41310307,BlogCommendFromQuerySearch_94"}'>
+							<span class="recommend_tit">CSDN推荐</span>
+							<a href="https://blog.csdn.net/leelit/article/details/41310307" target="_blank" title="Android组件：Fragment切换后保存状态">Android组件：Fragment切换后保存状态</a>
+						</div>
+				</dd>
+			</dl>
+		</div>
+		<div id="post-401471265" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401471265" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l ">
+								<div data-username="" class="user_head">
+
+									<a href="//my.csdn.net/puevfrficuzrkm3021" target="_blank" class="user_head_box" rel="nofollow">
+										<img src="//avatar.csdn.net/7/3/9/1_puevfrficuzrkm3021.jpg" class="avatar" >
+									</a>
+									<div class="user_material">
+										<div class="user_material_bg">
+											<dl class="user_material_c">
+												<dt class="fl">
+													<a href="//my.csdn.net/puevfrficuzrkm3021" target="_blank" class="user_head_box" rel="nofollow">
+														<img src="//avatar.csdn.net/7/3/9/1_puevfrficuzrkm3021.jpg" class="avatar" >
+													</a>
+												</dt>
+													<dd>
+														<ul class="topic_list">
+															<li><em>&sdot;</em><a href="javascript:;" target="_blank">此用户还没有发表过任何帖子</a></li>
+														</ul>
+													</dd>
+												<dd class="fun_dd">
+													<a href="javascript:;" class="follow_btn genius_att" data-username="puevfrficuzrkm3021">关注</a>
+													<!--下面是已关注按钮样式-->
+													<!--a.al_follow_btn(href="javascript:;") 已关注-->
+													<a href="//my.csdn.net/puevfrficuzrkm3021" target="_blank">空间</a>
+													<a href="//blog.csdn.net/puevfrficuzrkm3021" target="_blank">博客</a>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/puevfrficuzrkm3021" rel="nofollow" target="_blank" title="puevfrficuzrkm3021">puevfrficuzrk...</a></div>
+								<div class="user_level">
+									<img alt="Bbs1" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs1.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：0</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb36" data-username="puevfrficuzrkm3021" data-nickname="puevfrficuzrkm3021" data-floor="5">
+					<div class="post_body post_body_min_h">
+							<br />
+<pre class="brush: java">public&nbsp;class&nbsp;MyRoomFragment&nbsp;extends&nbsp;Fragment{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Button&nbsp;btn_history,btn_indexanalysis;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;IndexAnalysisFragment&nbsp;indexAnalysisFragment;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;PartyHistoryFragment&nbsp;partyHistoryFragment;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;final&nbsp;int&nbsp;PARTY_HISTORY_TYPE&nbsp;=&nbsp;1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;final&nbsp;int&nbsp;INDEX_ANALYSIS_TYPE&nbsp;=&nbsp;2;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;currentFragmentType&nbsp;=&nbsp;-1;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;View&nbsp;view;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@Nullable<br />
+&nbsp;&nbsp;&nbsp;&nbsp;@Override<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;View&nbsp;onCreateView(LayoutInflater&nbsp;inflater,&nbsp;@Nullable&nbsp;ViewGroup&nbsp;container,&nbsp;@Nullable&nbsp;Bundle&nbsp;savedInstanceState)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view&nbsp;=&nbsp;inflater.inflate(R.layout.activity_myroom,null);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_history&nbsp;=&nbsp;(Button)&nbsp;view.findViewById(R.id.btn_history);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_indexanalysis&nbsp;=&nbsp;(Button)&nbsp;view.findViewById(R.id.btn_indexanalysis);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_history.setOnClickListener(onClicker);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_indexanalysis.setOnClickListener(onClicker);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FragmentManager&nbsp;fragmentManager&nbsp;=&nbsp;getActivity().getSupportFragmentManager();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(savedInstanceState&nbsp;!=&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;type&nbsp;=&nbsp;savedInstanceState.getInt("anotherType");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;partyHistoryFragment&nbsp;=&nbsp;(PartyHistoryFragment)fragmentManager.findFragmentByTag("message");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indexAnalysisFragment&nbsp;=&nbsp;(IndexAnalysisFragment)fragmentManager.findFragmentByTag("call");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(type&nbsp;&gt;&nbsp;0)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadFragment(type);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FragmentTransaction&nbsp;transaction&nbsp;=&nbsp;fragmentManager<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.beginTransaction();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragment&nbsp;mainFragment&nbsp;=&nbsp;fragmentManager.findFragmentByTag("message");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(mainFragment&nbsp;!=&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.replace(R.id.fl_content,&nbsp;mainFragment);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.commit();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadFragment(PARTY_HISTORY_TYPE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;view;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;void&nbsp;switchFragment(int&nbsp;type)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(type)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;PARTY_HISTORY_TYPE:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadFragment(PARTY_HISTORY_TYPE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;INDEX_ANALYSIS_TYPE:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loadFragment(INDEX_ANALYSIS_TYPE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;void&nbsp;loadFragment(int&nbsp;type)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FragmentManager&nbsp;fragmentManager&nbsp;=&nbsp;getActivity().getSupportFragmentManager();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FragmentTransaction&nbsp;transaction&nbsp;=&nbsp;fragmentManager.beginTransaction();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(type&nbsp;==&nbsp;INDEX_ANALYSIS_TYPE)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(indexAnalysisFragment&nbsp;==&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indexAnalysisFragment&nbsp;=&nbsp;new&nbsp;IndexAnalysisFragment();<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.add(R.id.fl_content,&nbsp;indexAnalysisFragment,&nbsp;"zhishi");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.show(indexAnalysisFragment);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(partyHistoryFragment&nbsp;!=&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.hide(partyHistoryFragment);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentFragmentType&nbsp;=&nbsp;PARTY_HISTORY_TYPE;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(partyHistoryFragment&nbsp;==&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;partyHistoryFragment&nbsp;=&nbsp;new&nbsp;PartyHistoryFragment();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.add(R.id.fl_content,&nbsp;partyHistoryFragment,&nbsp;"wenda");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.show(partyHistoryFragment);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(indexAnalysisFragment&nbsp;!=&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.hide(indexAnalysisFragment);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentFragmentType&nbsp;=&nbsp;INDEX_ANALYSIS_TYPE;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transaction.commitAllowingStateLoss();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;View.OnClickListener&nbsp;onClicker&nbsp;=&nbsp;new&nbsp;View.OnClickListener()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Override<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;onClick(View&nbsp;v)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch&nbsp;(v.getId())&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;R.id.btn_history:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_history.setTextColor(Color.parseColor("#df3031"));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_indexanalysis.setTextColor(Color.WHITE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_history.setBackgroundResource(R.drawable.baike_btn_pink_left_f_96);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_indexanalysis.setBackgroundResource(R.drawable.baike_btn_trans_right_f_96);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switchFragment(PARTY_HISTORY_TYPE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;R.id.btn_indexanalysis:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_history.setTextColor(Color.WHITE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_indexanalysis.setTextColor(Color.parseColor("#df3031"));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_history.setBackgroundResource(R.drawable.baike_btn_trans_left_f_96);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn_indexanalysis.setBackgroundResource(R.drawable.baike_btn_pink_right_f_96);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switchFragment(INDEX_ANALYSIS_TYPE);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;};<br />
+<br />
+<br />
+}</pre><img src="https://img-bbs.csdn.net/upload/201608/13/1471073349_789175.png" alt="" /><br />
+点下面的按钮切换页面的回来之后<img src="https://img-bbs.csdn.net/upload/201608/13/1471073408_931292.png" alt="" /><br />
+不知道和楼主的情况一不一样。
+
+							<div>
+								<div id="kp_box_88" data-pid="88" data-track-view='{"mod":"kp_popu_88-113","con":",,"}' data-track-click='{"mod":"kp_popu_88-113","con":",,"}'><div>
+<script type="text/javascript" src="http://static.mediav.com/js/mvf_news_feed.js"></script>
+<div id="placeholder5" class="mediav_ad" ></div>
+            <script type="text/javascript">
+            NEWS_FEED({
+                w:728,//必须大于300
+                showid : '0UvTI1',
+                placeholderId : 'placeholder5',//容器ID
+                fId : '',//信息流容器ID
+                inject : 'cads'
+            })
+                        </script>
+                </div></div>
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401471265,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-08-13 15:31:27</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=59804432" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#5&nbsp;得分：0</span>
+						</div>
+					</div>
+				</dd>
+			</dl>
+		</div>
+		<div id="post-401471297" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401471297" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l ">
+								<div data-username="" class="user_head">
+
+									<a href="//my.csdn.net/qq_35493029" target="_blank" class="user_head_box" rel="nofollow">
+										<img src="//avatar.csdn.net/6/2/9/1_qq_35493029.jpg" class="avatar" >
+									</a>
+									<div class="user_material">
+										<div class="user_material_bg">
+											<dl class="user_material_c">
+												<dt class="fl">
+													<a href="//my.csdn.net/qq_35493029" target="_blank" class="user_head_box" rel="nofollow">
+														<img src="//avatar.csdn.net/6/2/9/1_qq_35493029.jpg" class="avatar" >
+													</a>
+												</dt>
+													<dd>
+														<ul class="topic_list">
+																<li><em>&sdot;</em><a href="/topics/392056571" target="_blank">Retrofit2相关 请求url自动拼接缺失一部分 百思不得其解 求大神解惑</a></li>
+																<li><em>&sdot;</em><a href="/topics/392002577" target="_blank">Android studio相关 运行app模拟器不安装</a></li>
+																<li><em>&sdot;</em><a href="/topics/391996999" target="_blank">布局相关 ListView的Item内部子控件高度发生改变时Item高度不能自适应怎么办</a></li>
+														</ul>
+													</dd>
+													<dd class="more_topic_wrap"><a href="/users/qq_35493029/topics" target="_blank" class="more_topic">更多帖子</a></dd>
+												<dd class="fun_dd">
+													<a href="javascript:;" class="follow_btn genius_att" data-username="qq_35493029">关注</a>
+													<!--下面是已关注按钮样式-->
+													<!--a.al_follow_btn(href="javascript:;") 已关注-->
+													<a href="//my.csdn.net/qq_35493029" target="_blank">空间</a>
+													<a href="//blog.csdn.net/qq_35493029" target="_blank">博客</a>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/qq_35493029" rel="nofollow" target="_blank" title="qq_35493029">qq_35493029</a></div>
+								<div class="user_level">
+									<img alt="Bbs1" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs1.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：0</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb72" data-username="qq_35493029" data-nickname="qq_35493029" data-floor="6">
+					<div class="post_body post_body_min_h">
+							切换fragment数据消失的话&nbsp;你肯定是用了replace方法了吧&nbsp;&nbsp;保留数据可以用hide和show方法
+
+							<div>
+								
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401471297,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-08-13 15:47:03</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=63249325" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#6&nbsp;得分：0</span>
+						</div>
+					</div>
+						<div class="post_recommend" data-track-view='{"mod":"popu_592","con":",https://blog.csdn.net/runstoppable/article/details/78441692,BlogCommendFromQuerySearch_92"}' data-track-click='{"mod":"popu_592","con":",https://blog.csdn.net/runstoppable/article/details/78441692,BlogCommendFromQuerySearch_92"}'>
+							<span class="recommend_tit">CSDN推荐</span>
+							<a href="https://blog.csdn.net/runstoppable/article/details/78441692" target="_blank" title="[Android]Fragment进行show和hide时候刷新数据">[Android]Fragment进行show和hide时候刷新数据</a>
+						</div>
+				</dd>
+			</dl>
+		</div>
+		<div id="post-401471574" class="mod_topic_wrap post" data-topic-id="391990885" data-post-id="401471574" data-is-topic-locked="false">
+			<dl class="topic_wrap clearfix">
+						<dt class="topic_l no_head">
+							<div class="user_nick_name">
+								<div class="nick_name"><a href="//my.csdn.net/qq_27709745" rel="nofollow" target="_blank" title="林小鱼">林小鱼</a></div>
+								<div class="user_level">
+									<img alt="Bbs1" class="topic_show_user_level" src="//csdnimg.cn/jifen/images/xunzhang/jianzhang/bbs1.png" />
+									<div class="topic_show_posts">
+										<div class="smallTittle">本版专家分：5</div>
+									</div>
+									
+								</div>
+							</div>
+						</dt>
+				<dd class="topic_r post_info pb72" data-username="qq_27709745" data-nickname="林小鱼" data-floor="7">
+					<div class="post_body post_body_min_h">
+							用hide和show方法
+
+							<div>
+								
+							</div>
+					</div>
+					<div class="control clearfix">
+						<div class="control_l fl">
+							<label onclick="post_digg(391990885,401471574,this)" class="red_praise digg">
+								<svg aria-hidden="true" class="icon praise">
+									<use xlink:href="#csdnc-thumbsup"></use>
+								</svg><em>0</em>
+							</label>
+							<label class="date_time">2016-08-13 18:18:43</label>
+						</div>
+						<div class="control_r fr">
+								<a href="/topics/391990885?list=51567395" class="only-filter">只看TA</a>
+							<span>・</span>
+							<a href="javascript:;" rel="nofollow" class="quote">引用</a>
+							<span>・</span>
+							<a href="javascript:;" class="report_spam">举报</a>
+							<span>・</span>
+							<span class="floor">#7&nbsp;得分：0</span>
+						</div>
+					</div>
+						<div class="post_recommend" data-track-view='{"mod":"popu_592","con":",https://blog.csdn.net/qq451765271/article/details/71475360,BlogCommendFromQuerySearch_91"}' data-track-click='{"mod":"popu_592","con":",https://blog.csdn.net/qq451765271/article/details/71475360,BlogCommendFromQuerySearch_91"}'>
+							<span class="recommend_tit">CSDN推荐</span>
+							<a href="https://blog.csdn.net/qq451765271/article/details/71475360" target="_blank" title="ViewPager切换Fragment生命周期变化">ViewPager切换Fragment生命周期变化</a>
+						</div>
+				</dd>
+			</dl>
+		</div>
+
+
+      <script>
+          //收藏帖子
+          (function() {
+              var bbs_fav_url = $('#bbs_fav_url').val();
+              var bbs_fav_title = $('#bbs_fav_title').val();
+
+              $.ajax({
+                  url: 'https://my.csdn.net/index.php/my/favorite/do_check',
+                  dataType: 'json',
+                  type: 'get',
+                  xhrFields: { withCredentials: true },
+                  crossDomain: true,
+                  data:{url:bbs_fav_url},
+                  success: function(json) {
+                      if(json.is_exist==1){
+                          $('#bbs_fav').html('取消收藏');
+                          $('#bbs_fav').on('click',function(){
+                              del_bbs_fav(json.favorite_id);
+                          });
+                      }else{
+                          $('#bbs_fav').html('收藏帖子');
+                          $('#bbs_fav').on('click',function(){
+                              bbs_fav();
+                          });
+                      }
+                  },
+                  error: function(e) {
+                      console.log(e);
+                  }
+              });
+
+              function bbs_fav(){
+                  $.ajax({
+                      url: 'https://my.csdn.net/index.php/my/favorite/do_add/2',
+                      dataType: 'json',
+                      type: 'get',
+                      xhrFields: { withCredentials: true },
+                      crossDomain: true,
+                      data:{title:bbs_fav_title,url:bbs_fav_url,share:1,map_name:''},
+                      success: function(json) {
+                          if(json.succ==1){
+                              alert('收藏成功');
+                              window.location.reload();
+                          }else{
+                              alert(json.msg);
+                          }
+                      },
+                      error: function() {
+                      }
+                  });
+              }
+              function del_bbs_fav(id){
+                  $.ajax({
+                      url: 'https://my.csdn.net/index.php/my/favorite/do_delete/'+id.toString(),
+                      dataType: 'json',
+                      type: 'get',
+                      xhrFields: { withCredentials: true },
+                      crossDomain: true,
+                      data:{},
+                      success: function(json) {
+                          if(json.succ==1){
+                              alert('取消收藏成功');
+                              window.location.reload();
+                          }else{
+                              alert(json.msg);
+                          }
+                      },
+                      error: function() {
+                      }
+                  });
+              }
+          })();
+          // 点赞
+          function post_digg(topic_id,post_id,obj){
+              window.csdn.loginBox.show();
+              return false
+              $.ajax({
+                  type:'PUT',
+                  dataType: "json",
+                  url:'/posts/'+post_id.toString()+'/digg',
+                  data: {
+                      topic_id: topic_id.toString()
+                  },
+                  success: function(json){
+                      if(json.success){
+                          $(obj).find("em").text(json.digg);
+                      }else{
+                          alert("您已经投过票了");
+                      }
+                  }
+              })
+          }
+
+          function post_bury(topic_id,post_id,obj){
+              $.ajax({
+                  type:'PUT',
+                  dataType: "json",
+                  url:'/posts/'+post_id.toString()+'/bury',
+                  data: {
+                      topic_id: topic_id.toString()
+                  },
+                  success: function(json){
+                      if(json.success){
+                          $(obj).find("em").text(json.bury);
+                      }else{
+                          alert("您已经投过票了");
+                      }
+                  }
+              })
+          }
+      </script>
+      <div class="mod_fun_wrap clearfix">
+	<div class="page_wrap fl">
+		<!-- page 开始-->
+		
+		<!-- page 结束-->
+	</div>
+	<ul class="fun_l fr">
+		<li>
+			<input type="hidden" id="bbs_fav_url" value="http://bbs.csdn.net/topics/391990885">
+			<input type="hidden" id="bbs_fav_title" value="Fragment切换页面时数据消失">
+        <a href="javascript:;" data-bind-login = "true" onclick="window.csdn.loginBox.show()" class="fav">收藏帖子</a>
+		</li>
+
+
+	</ul>
+
+</div>
+      <script>
+          $('em.jumpMenu').click(function() {
+              var page = $(this).parent().find('input.page_inpt').val();
+              if (page != 1) {
+                  window.location.href = (window.location.pathname + '?page=' + page);
+              } else {
+                  window.location.href = window.location.pathname;
+              }
+          });
+      </script>
+
+        <div class="pulllog-box" style="display: block;">
+          <div class="pulllog clearfix">
+            <span class="text floatL" id="ad-container">
+                <!-- 广告位：PC-博客内页底通 文字链位置 -->
+                <script>
+                    (function() {
+                        (window.slotbydup=window.slotbydup || []).push({
+                            id: '5872554',
+                            container: 'ad-container',
+                            size: '690,36',
+                            display: 'inlay-fix'
+                        })
+                    })()
+                </script>
+                <script src="http://dup.baidustatic.com/js/os.js"></script>
+            </span>
+            <div class="pulllog-btn floatR clearfix">
+              <a class="pulllog-login floatL csdn-tracking-statistics tracking-click" data-mod="popu_557" href="https://passport.csdn.net/account/login" target="_blank">登录</a>
+              <a class="pulllog-sigin floatL csdn-tracking-statistics tracking-click" data-mod="popu_558" href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+              <button class="btn-close">+</button>
+            </div>
+          </div>
+        </div>
+        <script>
+            (function() {
+                //close footer login box
+                var pullBox = $(".pulllog-box")
+                pullBox.find("button.btn-close").click(function() {
+                    pullBox.remove()
+                })
+            })()
+        </script>
+        <span class="login" id="new_post">匿名用户不能发表回复！</span>
+    </div>
+      <!--相关推荐feed-->
+      <div class="mod_topic_wrap" style="float: left">
+        <div class="post_feed_box">
+          <dl class="bbs_feed">
+            <dt class="bbs_feed_title">其他相关推荐</dt>
+          </dl>
+          <div id="post_feed_wrap" class="post_feed_wrap" >
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_30711091/article/details/81629590,BlogCommendFromBaidu_0"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_30711091/article/details/81629590,BlogCommendFromBaidu_0"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_30711091/article/details/81629590" target="_blank" title="Android <em>fragment</em>来回<em>切换</em>时，刷新<em>数据</em>-小白新人">Android <em>fragment</em>来回<em>切换</em>时，刷新<em>数据</em>-小白新人</a>
+                </dt>
+                <dd>一般，我们做项目，底部的4个<em>fragment</em><em>切换</em>时，最好可以刷新<em>数据</em>
+
+做<em>fragment</em>显影藏时，最好用hide，show
+
+这时会有一个方法onHiddenChanged
+
+在这里面我们可以刷新<em>数据</em>
+
+还可以做这个操作——点当前tab，也刷新界面
+
+
+@Override
+public void onResume() {
+    super.onResume();
+    showToast(&quot;...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_37902949/article/details/79233883,BlogCommendFromBaidu_1"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_37902949/article/details/79233883,BlogCommendFromBaidu_1"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_37902949/article/details/79233883" target="_blank" title="Android Viewpager加Fragment做界面<em>切换</em>时<em>数据</em><em>消失</em>的解决方式-love">Android Viewpager加Fragment做界面<em>切换</em>时<em>数据</em><em>消失</em>的解决方式-love</a>
+                </dt>
+                <dd> 
+
+今天遇到多个Fragment<em>切换</em>，回来后<em>页面</em>空白的情况，找到这个博客方法设置了一下，就可以了
+
+
+ 
+
+
+vpAdapter = new VpAdapter(getSupportFragmentManager(), <em>fragment</em>s);
+vp_content.setAdapter(vpAdapter);
+vp_content.setOffscreenPageLimit(2);//设置Vie...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_31990999/article/details/78326138,BlogCommendFromBaidu_2"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_31990999/article/details/78326138,BlogCommendFromBaidu_2"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_31990999/article/details/78326138" target="_blank" title="完美  解决<em>fragment</em>中listview<em>数据</em>丢失问题和问题分析-qq_31990999的博客">完美  解决<em>fragment</em>中listview<em>数据</em>丢失问题和问题分析-qq_31990999的博客</a>
+                </dt>
+                <dd>解决<em>fragment</em>中listview<em>数据</em>丢失问题
+
+
+private ListViewForScrollView
+mListview;
+private FindShareAdatpter
+shareAdatpter = 
+null;
+private List
+tastlistdata=null;
+
+
+首先分析下它的生命周期，与 activity 不同的是，这个 rooti</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_93" data-pid="93" data-track-view='{"mod":"kp_popu_93-118","con":",,"}' data-track-click='{"mod":"kp_popu_93-118","con":",,"}'><!--360广告开始-->
+        <div>
+<script type="text/javascript" src="http://static.mediav.com/js/mvf_news_feed.js"></script>
+            <div id="info_ad0" class="mediav_ad" ></div>
+            <script type="text/javascript">
+            NEWS_FEED({
+                      w: 920,
+                      h : 66,
+                      showid : 'wc4SIC',
+                      placeholderId: "info_ad0",
+                      inject : 'define',
+                      define : {
+                          imagePosition : 'right',
+                          imageBorderRadius : 0,
+                          imageWidth: 80,
+                          imageHeight: 60,
+                          imageFill : 'clip',
+                          displayImage : true,
+                          displayTitle : true,
+                          titleFontSize: 16,
+                          titleFontColor: '#3d3d3d',
+                          titleFontFamily : 'Microsoft Yahei',
+                          titleFontWeight: 'normal',
+                          titlePaddingTop : 0,
+                          titlePaddingRight : 0,
+                          titlePaddingBottom : 13,
+                          titlePaddingLeft : 0,
+                          displayDesc : true,
+                          descFontSize: 14,
+                          descFontColor: '#8e959a',
+                          descFontFamily : 'Microsoft Yahei',
+                          paddingTop : 5,
+                          paddingRight : 0,
+                          paddingBottom : 5,
+                          paddingLeft : 0,
+                          backgroundColor: '#fff',
+                          hoverColor: '#f44444'
+                      }
+                  })
+			</script>
+		</div>
+		<!--360广告结束--></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/michael_ouyang/article/details/50976200,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/michael_ouyang/article/details/50976200,BlogCommendFromQuerySearch_3"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/michael_ouyang/article/details/50976200" target="_blank" title="<em>fragment</em>当<em>切换</em><em>页面</em>的时候，<em>页面</em>的UI信息没有了，然后再次<em>切换</em>这个<em>页面</em>的时候，又变回原来没有登录的状态的界面-michael的博客"><em>fragment</em>当<em>切换</em><em>页面</em>的时候，<em>页面</em>的UI信息没有了，然后再次<em>切换</em>这个<em>页面</em>的时候，又变回原来没有登录的状态的界面-michael的博客</a>
+                </dt>
+                <dd>现在稍有头绪的使用方法是用onSaveInstanceState(Bundle outState) 和onViewStateRestored(Bundle savedInstanceState)的这两个方法来进行UI状态的保存和取出，直接把UI的字符串值传入Bundle中，但是取<em>数据</em>和保存<em>数据</em>条件该写什么？
+还有，这里不应该使用onStart()和onPause()方法来保存这样的UI界面<em>数据</em>，</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/zzdahama/article/details/53228908,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/zzdahama/article/details/53228908,BlogCommendFromQuerySearch_4"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/zzdahama/article/details/53228908" target="_blank" title="Fragment  <em>切换</em><em>数据</em>丢失决绝-zzdahama的博客">Fragment  <em>切换</em><em>数据</em>丢失决绝-zzdahama的博客</a>
+                </dt>
+                <dd>笔记</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/TaooLee/article/details/50633619,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/TaooLee/article/details/50633619,BlogCommendFromQuerySearch_5"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/TaooLee/article/details/50633619" target="_blank" title="Fragment嵌套ViewPager<em>切换</em>后<em>数据</em><em>消失</em>ViewPager空白问题-TaoLee">Fragment嵌套ViewPager<em>切换</em>后<em>数据</em><em>消失</em>ViewPager空白问题-TaoLee</a>
+                </dt>
+                <dd>先描述一下现象 
+如图解决后如图 
+之前先在网上找了很多的解决办法，有的网友说要继承FragmentStatePagerAdapter替换掉FragmentPagerAdapter我试了试没管用。后来在解决如下 
+此方法为初始化ViewPagerprivate void init() {
+        <em>fragment</em>sList = new ArrayList();
+        manager</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/chaogu94/article/details/74315595,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/chaogu94/article/details/74315595,BlogCommendFromQuerySearch_6"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/chaogu94/article/details/74315595" target="_blank" title="两个<em>fragment</em>之间跳转listview<em>数据</em>丢失-嘲孤的博客">两个<em>fragment</em>之间跳转listview<em>数据</em>丢失-嘲孤的博客</a>
+                </dt>
+                <dd>在两个<em>fragment</em> 中进行跳转，假设A<em>fragment</em>中有listview，调转到B<em>fragment</em>后在跳转回来，listview<em>数据</em>会<em>消失</em>。解决方法如下： 
+因为listview其实已经换了，直接调用adapter的notifyDataSetChanged就没有对listview进行setAdapter; 
+需要重新setadapter一下。因此我在onResume方法中添加了一下listvi</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/taoszu/article/details/78765833,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/taoszu/article/details/78765833,BlogCommendFromQuerySearch_7"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/taoszu/article/details/78765833" target="_blank" title="<em>fragment</em> 在后台被杀死 <em>数据</em>丢失-少年阿涛"><em>fragment</em> 在后台被杀死 <em>数据</em>丢失-少年阿涛</a>
+                </dt>
+                <dd>问题描述
+日常排查bugly上面的错误时，发现Nullpointer的问题特别严重，而相关的特征都是应用在后台和应用带<em>fragment</em>。排查代码发现都做了为空判断，为什么还会出现空对象的情况呢？
+模拟场景
+如果应用常驻后台，内存有可能会被系统回收，当用户重新打开应用时，app进行恢复操作，此时应用报错。
+模拟后台内存不足可以使用android studio的自带功能，如下，将应用退到后台，点击x按钮</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_94" data-pid="94" data-track-view='{"mod":"kp_popu_94-119","con":",,"}' data-track-click='{"mod":"kp_popu_94-119","con":",,"}'><!--360广告开始-->
+        <div>	
+<!--
+<script type="text/javascript" src="http://static.mediav.com/js/mvf_news_feed.js"></script>
+-->	
+            <div id="info_ad8" class="mediav_ad" ></div>
+            <script type="text/javascript">
+            NEWS_FEED({
+                      w: 920,
+                      h : 66,
+                      showid : 'wc4SIC',
+                      placeholderId: "info_ad8",
+                      inject : 'define',
+                      define : {
+                          imagePosition : 'right',
+                          imageBorderRadius : 0,
+                          imageWidth: 80,
+                          imageHeight: 60,
+                          imageFill : 'clip',
+                          displayImage : true,
+                          displayTitle : true,
+                          titleFontSize: 16,
+                          titleFontColor: '#3d3d3d',
+                          titleFontFamily : 'Microsoft Yahei',
+                          titleFontWeight: 'normal',
+                          titlePaddingTop : 0,
+                          titlePaddingRight : 0,
+                          titlePaddingBottom : 13,
+                          titlePaddingLeft : 0,
+                          displayDesc : true,
+                          descFontSize: 14,
+                          descFontColor: '#8e959a',
+                          descFontFamily : 'Microsoft Yahei',
+                          paddingTop : 5,
+                          paddingRight : 0,
+                          paddingBottom : 5,
+                          paddingLeft : 0,
+                          backgroundColor: '#fff',
+                          hoverColor: '#f44444'
+                      }
+                  })
+			</script>
+		</div>
+		<!--360广告结束--></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/aa6306249/article/details/52468915,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/aa6306249/article/details/52468915,BlogCommendFromQuerySearch_8"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/aa6306249/article/details/52468915" target="_blank" title="ViewPager中嵌套Fragment<em>切换</em><em>页面</em>发生空白问题的解决-aa6306249的专栏">ViewPager中嵌套Fragment<em>切换</em><em>页面</em>发生空白问题的解决-aa6306249的专栏</a>
+                </dt>
+                <dd>mViewPager.setOffscreenPageLimit(Fragment的数量);
+加这一行Fragment就不会被回收，会缓存在内存中，但我项目中真正的原因还是在<em>切换</em>的时候重新调用生命周期方法，
+其中startPage已经变成20，这个成员变量没有初始化，因为服务器一共就没有20条<em>数据</em>，导致recyclerView拿不到<em>数据</em>，
+看起来是空的，解决办法：在onCreateView里</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/Android_Object/article/details/78531823,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/Android_Object/article/details/78531823,BlogCommendFromQuerySearch_9"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/Android_Object/article/details/78531823" target="_blank" title="Fragment嵌套Viewpager嵌套Fragment,<em>切换</em>后<em>数据</em>不见了解决方案....-Android_Object的博客">Fragment嵌套Viewpager嵌套Fragment,<em>切换</em>后<em>数据</em>不见了解决方案....-Android_Object的博客</a>
+                </dt>
+                <dd>第一次,画图,画着画着自己晕了....
+说一下吧,就是我们一般的APP都是四个底部导航,上面是四个Fragment,而Fragment是由Viewpager管理的.有的APP,Fragment里面嵌套着<em>fragment</em>.当我运行APP的时候,此时按钮1是选中状态,此时Fragment显示正常,当我<em>切换</em>底部导航时,再次<em>切换</em>按钮1时,<em>数据</em>没有了.....
+解决方案:
+
+@Override
+pr</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_38998213/article/details/81742528,BlogCommendFromQuerySearch_10"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_38998213/article/details/81742528,BlogCommendFromQuerySearch_10"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_38998213/article/details/81742528" target="_blank" title="在Fragment<em>切换</em>时进行界面<em>数据</em>刷新-ZhangJiQun的博客">在Fragment<em>切换</em>时进行界面<em>数据</em>刷新-ZhangJiQun的博客</a>
+                </dt>
+                <dd>使用show和hide来显隐的Fragment
+
+ 
+
+在viewpage进行 嵌套的时候， 最好私用第三中。
+
+FragmentManager除了addFragment和replaceFragment之外还有showFragment和hideFragment来做Fragment的显隐，这样可以提生<em>页面</em><em>切换</em>的速度，是一种用空间换时间的方式。但是这样使用的Fragment在被hide的时候是不会调用...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/chenguang79/article/details/49486723,BlogCommendFromQuerySearch_11"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/chenguang79/article/details/49486723,BlogCommendFromQuerySearch_11"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/chenguang79/article/details/49486723" target="_blank" title="仿知乎程序（二）<em>fragment</em>的<em>切换</em>以及toolbar在不同<em>页面</em>下显示的menu不同-我本无名的专栏">仿知乎程序（二）<em>fragment</em>的<em>切换</em>以及toolbar在不同<em>页面</em>下显示的menu不同-我本无名的专栏</a>
+                </dt>
+                <dd>上一篇我们已经把首页的一个基本框架搭起来了，今天我们继续我们的工作，左侧侧滑菜单已经有了，我们就为它加载上相应的<em>页面</em>吧。我们在看知乎的时候，你会发现，首页，发现，关注，收藏，草稿这五项，你在点击之后进入到相应<em>页面</em>之后，侧滑菜单还在，你左侧滑一下，这个侧滑菜单还在，而提问，左滑屏幕，这个<em>页面</em>就没有，有点像返回上一页的感觉。
+     从操作来看，五<em>页面</em>应该是<em>fragment</em>之间的<em>切换</em>，而提问是单独</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/w372426096/article/details/49951317,BlogCommendFromQuerySearch_12"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/w372426096/article/details/49951317,BlogCommendFromQuerySearch_12"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/w372426096/article/details/49951317" target="_blank" title="ViewPager中<em>切换</em>及滑动<em>切换</em>Fragment<em>数据</em>保存状态讲解-Franco的博客">ViewPager中<em>切换</em>及滑动<em>切换</em>Fragment<em>数据</em>保存状态讲解-Franco的博客</a>
+                </dt>
+                <dd>最近工作中遇到了一个很棘手的问题，就是Viewpager中加载Fragment后，来回<em>切换</em>都会重新加载一遍<em>数据</em>，很浪费流量；查找了一些资料，总结一下主要就是FragmentPagerAdapter会把没一个生成的Fragment都保存在内存中，因此比较适用于<em>页面</em>相对静态，<em>页面</em>比较少的情况；像拥有大量<em>页面</em>经常会变的<em>页面</em>时候，就不必要占用大量的内存。
+讲ViewPager中的Fragment的生命周</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_95" data-pid="95" data-track-view='{"mod":"kp_popu_95-120","con":",,"}' data-track-click='{"mod":"kp_popu_95-120","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad13" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3539104\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/xiaoping0915/article/details/51211965,BlogCommendFromQuerySearch_13"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/xiaoping0915/article/details/51211965,BlogCommendFromQuerySearch_13"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/xiaoping0915/article/details/51211965" target="_blank" title="【问题解决】FragmentTabHost 底部菜单栏，<em>切换</em>Frgment时重新加载问题-追寻水中桥">【问题解决】FragmentTabHost 底部菜单栏，<em>切换</em>Frgment时重新加载问题-追寻水中桥</a>
+                </dt>
+                <dd>public class DisFragment extends BaseFragment {
+	private ListView mListView;
+	private List mList = new ArrayList();
+
+	private View view;// 缓存Fragment view
+
+	@Override
+	public View onCreateView(LayoutI</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/zmldlut/article/details/17689011,BlogCommendFromQuerySearch_14"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/zmldlut/article/details/17689011,BlogCommendFromQuerySearch_14"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/zmldlut/article/details/17689011" target="_blank" title="解决<em>fragment</em>+viewpager第二次进入的时候没有<em>数据</em>的问题-zmldlut的专栏">解决<em>fragment</em>+viewpager第二次进入的时候没有<em>数据</em>的问题-zmldlut的专栏</a>
+                </dt>
+                <dd>问题描述：
+我的项目类似新浪新闻，侧边栏有几个item，每个item对应一个<em>fragment</em>。其中有一个item A对应的JobFragment 中有viewpager，然后viewpager中又有4个<em>fragment</em>。
+选中JobFragment时，首先初始化界面，这时候没有<em>数据</em>，然后界面初始化完后，经过访问网络获取<em>数据</em>，然后填充<em>数据</em>到viewpager中的4个<em>fragment</em>中。如图示：</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/jjsyjiao/article/details/40980909,BlogCommendFromQuerySearch_15"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/jjsyjiao/article/details/40980909,BlogCommendFromQuerySearch_15"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/jjsyjiao/article/details/40980909" target="_blank" title="android Fragment实现Tab功能（<em>fragment</em>相互<em>切换</em>时，可保存之前状态）-jjsyjiao的专栏">android Fragment实现Tab功能（<em>fragment</em>相互<em>切换</em>时，可保存之前状态）-jjsyjiao的专栏</a>
+                </dt>
+                <dd>先上个效果图</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/tz2101/article/details/53022160,BlogCommendFromQuerySearch_16"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/tz2101/article/details/53022160,BlogCommendFromQuerySearch_16"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/tz2101/article/details/53022160" target="_blank" title="Activity嵌Fragment，如何<em>切换</em>时保存当前<em>数据</em>-生命不息，奋斗不止">Activity嵌Fragment，如何<em>切换</em>时保存当前<em>数据</em>-生命不息，奋斗不止</a>
+                </dt>
+                <dd>使用这种用法先熟悉Fragment的生命周期，如下图所示，所以在一个Activity中<em>切换</em>Fragment时，会有<em>数据</em>被清空的情况，下面大致讲下如何保存当前<em>页面</em><em>数据</em>，不用再次请求网络
+
+
+Activity<em>切换</em>Fragment的方法如下：注意加粗代码，否则Fragment的getArguments会报null异常
+switch (arg0.getId()) {
+		case R.id.hom</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/liulinghuidage/article/details/52051693,BlogCommendFromQuerySearch_17"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/liulinghuidage/article/details/52051693,BlogCommendFromQuerySearch_17"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/liulinghuidage/article/details/52051693" target="_blank" title="PagerSlidingTabStrip关联viewpager时，viewpager上<em>fragment</em><em>切换</em>时保持<em>数据</em>状态，以及viewpager默认缓存的去除-liulinghuidage的博客">PagerSlidingTabStrip关联viewpager时，viewpager上<em>fragment</em><em>切换</em>时保持<em>数据</em>状态，以及viewpager默认缓存的去除-liulinghuidage的博客</a>
+                </dt>
+                <dd>一：布局文件为：
+
+com.ddhealer.nidmall.view.PagerSlidingTabStrip
+    android:layout_marginLeft="13dp"
+    android:layout_marginRight="13dp"
+    android:id="@+id/pagerSlidingTabStrip"
+    android:layout_widt</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_96" data-pid="96" data-track-view='{"mod":"kp_popu_96-121","con":",,"}' data-track-click='{"mod":"kp_popu_96-121","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad18" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            placeholderId: "three_ad18",
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3539104\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u012255016/article/details/51333896,BlogCommendFromQuerySearch_18"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u012255016/article/details/51333896,BlogCommendFromQuerySearch_18"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u012255016/article/details/51333896" target="_blank" title="Fragment<em>切换</em>重新或不重新加载界面-fydsw1314的专栏">Fragment<em>切换</em>重新或不重新加载界面-fydsw1314的专栏</a>
+                </dt>
+                <dd>Fragment<em>切换</em>重新或不重新加载界面
+在实现开发应用时，有时Fragment<em>切换</em>时界面的信息需要更新，则需要重新加载，否则不需要；
+下面实现了默认的<em>fragment</em> 、 不重新加载 与 重新加载的方法，只需你自己的fragmeng和 放<em>fragment</em>的布局id;
+注：是import android.app.Fragment包的；
+
+/**
+     * 设置默认的<em>fragment</em>，</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u010897392/article/details/25600241,BlogCommendFromQuerySearch_19"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u010897392/article/details/25600241,BlogCommendFromQuerySearch_19"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u010897392/article/details/25600241" target="_blank" title="解决Fragment每次<em>切换</em>时<em>数据</em>重新获取问题-u010897392的专栏">解决Fragment每次<em>切换</em>时<em>数据</em>重新获取问题-u010897392的专栏</a>
+                </dt>
+                <dd>只需判断布局文件是否被加载过，需要注意的是加载的缓存有没有</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_24602583/article/details/70478015,BlogCommendFromQuerySearch_20"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_24602583/article/details/70478015,BlogCommendFromQuerySearch_20"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_24602583/article/details/70478015" target="_blank" title="关于viewpager+tablayout.<em>切换</em>pager生命周期方法的问题-qq_24602583的博客">关于viewpager+tablayout.<em>切换</em>pager生命周期方法的问题-qq_24602583的博客</a>
+                </dt>
+                <dd>话不多少，上问题。关于viewpager<em>切换</em>时，所在<em>fragment</em>生命周期方法如何进行的？
+
+
+vp_FirstFragment，vp_SecondFragment，vp_ThirdFragment是viewpager的三个界面
+
+
+比如 第一个界面初始化显示时，会预加载第二个界面，直接就会走到第二个界面的onresume
+
+vp_FirstFragment-------onAt</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/JArchie520/article/details/78972987,BlogCommendFromQuerySearch_21"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/JArchie520/article/details/78972987,BlogCommendFromQuerySearch_21"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/JArchie520/article/details/78972987" target="_blank" title="快速解决：ViewPager+多Fragment<em>切换</em>出现空白<em>页面</em>的问题-JArchie520的博客">快速解决：ViewPager+多Fragment<em>切换</em>出现空白<em>页面</em>的问题-JArchie520的博客</a>
+                </dt>
+                <dd>前言
+前两天在做项目的过程中遇到一个问题，以前没遇到过，所以这里做个笔记记录下来，也是分享给同样遇到这个问题还尚未解决的猿友们。
+问题描述：项目的主页框架是采用Activity+Fragment的架构，由于项目需求，在第一个Fragment中又采用的是TabLayout+ViewPager+Fragment的结构，假设我这里有5个子Fragment，第一个子Fragment中有控件、<em>数据</em>这些东</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/JimTrency/article/details/52690074,BlogCommendFromQuerySearch_22"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/JimTrency/article/details/52690074,BlogCommendFromQuerySearch_22"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/JimTrency/article/details/52690074" target="_blank" title="android <em>fragment</em> <em>切换</em>时隐藏软键盘-JimTrency的博客">android <em>fragment</em> <em>切换</em>时隐藏软键盘-JimTrency的博客</a>
+                </dt>
+                <dd>今天，项目遇到这个问题，在网上找了好久，都不理想，好多都是copy的。结果在大神的帮助下完成，代码如下：public  void hideIputKeyboard(final Context context) { 
+        final Activity activity = (Activity) context; 
+        activity.runOnUiThread(new Run</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_97" data-pid="97" data-track-view='{"mod":"kp_popu_97-122","con":",,"}' data-track-click='{"mod":"kp_popu_97-122","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad23" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3539104\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/yuanmakezhan/article/details/73293310,BlogCommendFromQuerySearch_23"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/yuanmakezhan/article/details/73293310,BlogCommendFromQuerySearch_23"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/yuanmakezhan/article/details/73293310" target="_blank" title="FragmentTabHost屏幕<em>切换</em>时Fragment显示空白-yuanmakezhan的专栏">FragmentTabHost屏幕<em>切换</em>时Fragment显示空白-yuanmakezhan的专栏</a>
+                </dt>
+                <dd>如果竖屏时显示的是SecondFragment，再把屏幕旋转，此时系统保存的tab就是SecondFragment对应的tab，所以会detach掉FirstFragment，注意，由于屏幕旋转后activity会重建，所以此时系统会重新创建一个FirstFragment对象，就也是这个新创建的FirstFragment只是从FragmentManager中恢复了状态state，但是被detach了</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/lantesi/article/details/45919479,BlogCommendFromQuerySearch_24"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/lantesi/article/details/45919479,BlogCommendFromQuerySearch_24"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/lantesi/article/details/45919479" target="_blank" title="[笔记]关于<em>fragment</em><em>切换</em>更新<em>数据</em>问题-lantesi的专栏">[笔记]关于<em>fragment</em><em>切换</em>更新<em>数据</em>问题-lantesi的专栏</a>
+                </dt>
+                <dd>之前项目中遇到一个问题，一个activity中有4个<em>fragment</em>，互相<em>切换</em>，我需要在<em>fragment</em><em>切换</em>时，将切入前台的<em>fragment</em>的<em>页面</em><em>数据</em>刷新，网上很多方法都不太好用。
+之前一直在onResume()中调用，但是并不会在<em>fragment</em>互相<em>切换</em>中调用，因为他依赖于activity，但是<em>fragment</em>的<em>切换</em>并不会影响他的activity:
+activity的生命流程是：onCrea</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/huyunfu0957/article/details/54235829,BlogCommendFromQuerySearch_25"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/huyunfu0957/article/details/54235829,BlogCommendFromQuerySearch_25"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/huyunfu0957/article/details/54235829" target="_blank" title="Android横竖屏<em>切换</em>后，重新设置activity布局，ViewPager上无法正确显示Fragment-huyunfu0957的博客">Android横竖屏<em>切换</em>后，重新设置activity布局，ViewPager上无法正确显示Fragment-huyunfu0957的博客</a>
+                </dt>
+                <dd>如题，
+@Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        clearnSurface();//清除Surface
+
+        super.onConfigurationChanged(newConfig);
+        if (this.getResources().g</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/wei_chong_chong/article/details/47747631,BlogCommendFromQuerySearch_26"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/wei_chong_chong/article/details/47747631,BlogCommendFromQuerySearch_26"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/wei_chong_chong/article/details/47747631" target="_blank" title="Android之横竖屏<em>切换</em>内容丢失问题解决方法-程序员">Android之横竖屏<em>切换</em>内容丢失问题解决方法-程序员</a>
+                </dt>
+                <dd>注意：
+
+
+在横屏竖屏<em>切换</em>过程中，Activity会被重新创建
+onCreate方法会重新执行
+
+
+如果没有id的组件如编辑框等则横屏填写的编辑框中的<em>数据</em>，写到一半后如果竖屏显示，
+<em>数据</em>会丢失
+谷歌解决方案：
+如果拥有id
+会在第一次创建Activity，执行完onCreate()方法之后把id组件中对应的值临时保存存起来，
+在旋转后再次创建Activity时
+但是是在</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/haibin80s/article/details/18043591,BlogCommendFromQuerySearch_27"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/haibin80s/article/details/18043591,BlogCommendFromQuerySearch_27"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/haibin80s/article/details/18043591" target="_blank" title="viewPager <em>页面</em><em>切换</em>时 <em>fragment</em>重新加载问题-七月流浪猫">viewPager <em>页面</em><em>切换</em>时 <em>fragment</em>重新加载问题-七月流浪猫</a>
+                </dt>
+                <dd>当viewpager<em>切换</em><em>页面</em>时，当<em>页面</em>比较多时，当前显示<em>页面</em>不相邻的<em>fragment</em>会被viewpager destory掉，重新显示时会再次调用oncreateview，
+解决方法是调用viewpager.setOffscreenPageLimit(int a)设置当前显示<em>页面</em>相邻的a个<em>页面</em>进行缓存</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_98" data-pid="98" data-track-view='{"mod":"kp_popu_98-123","con":",,"}' data-track-click='{"mod":"kp_popu_98-123","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad28" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3539104\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/RedWolfChao/article/details/54289162,BlogCommendFromQuerySearch_28"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/RedWolfChao/article/details/54289162,BlogCommendFromQuerySearch_28"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/RedWolfChao/article/details/54289162" target="_blank" title="Fragment-Fragment<em>切换</em>的<em>数据</em>刷新问题-RedWolf-blog">Fragment-Fragment<em>切换</em>的<em>数据</em>刷新问题-RedWolf-blog</a>
+                </dt>
+                <dd>需求:<em>fragment</em>中存在一个ListView列表,在其进入<em>切换</em>到别的<em>页面</em>(或者是Fragment或者是Activity)的情况下需要刷新<em>数据</em>
+问题仅仅依靠onResume方法实现不了,在<em>fragment</em><em>切换</em><em>fragment</em>的时候(Viewpager),onResume并不会调用
+解决过程通过查看Fragment中所有的回调方法发现,有这么一个方法,符合我们的需求
+//  参数enter表明 当前</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/cuishikun9527/article/details/51327290,BlogCommendFromQuerySearch_29"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/cuishikun9527/article/details/51327290,BlogCommendFromQuerySearch_29"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/cuishikun9527/article/details/51327290" target="_blank" title="<em>fragment</em>+viewpager第二次加载<em>页面</em>时显示空白的原因!-cuishikun9527的博客"><em>fragment</em>+viewpager第二次加载<em>页面</em>时显示空白的原因!-cuishikun9527的博客</a>
+                </dt>
+                <dd>在编写一个底层有三个RadioButton,中间层是一个Linearlayout的app的的时候，在每个radiobutton对应的向Linearlayout中添加<em>fragment</em>，第二个有点特殊，不是直接的加入<em>fragment</em>而是加入了一个viewpager,并且在viewpager里面添加了<em>fragment</em>进行<em>切换</em>.
+于是问题来了 ：在<em>切换</em>不同界面的时候 第一次读取viewpager的时候可</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/sinat_29060967/article/details/51902026,BlogCommendFromQuerySearch_30"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/sinat_29060967/article/details/51902026,BlogCommendFromQuerySearch_30"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/sinat_29060967/article/details/51902026" target="_blank" title="多个<em>fragment</em><em>切换</em>，而不重新加载<em>数据</em>的实现-一个北漂的程序员">多个<em>fragment</em><em>切换</em>，而不重新加载<em>数据</em>的实现-一个北漂的程序员</a>
+                </dt>
+                <dd>多个<em>fragment</em><em>切换</em>，而不重新加载<em>数据</em>的实现1、在xml中添加一个framlayout&amp;lt;FrameLayout 
+        android:id=&quot;@+id/framelayout&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_weight=&quot;1&quot;
+        android:layout...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/walid1992/article/details/49745419,BlogCommendFromQuerySearch_31"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/walid1992/article/details/49745419,BlogCommendFromQuerySearch_31"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/walid1992/article/details/49745419" target="_blank" title="ViewPager<em>页面</em>滑动Fragment销毁问题-王永迪的专栏">ViewPager<em>页面</em>滑动Fragment销毁问题-王永迪的专栏</a>
+                </dt>
+                <dd>1、使用场景
+
+ViewPager+Fragment实现界面<em>切换</em>，界面数量>=3
+
+
+
+
+
+2、Fragment生命周期以及与Activity生命周期对比
+
+                  
+
+
+
+3、问题描述
+
+按上图所说，只有当Fragment所Attached的Activity执行destroy的时候才会调用onDestoryView方法，然而现实是：</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/androidxiaojiang/article/details/52870781,BlogCommendFromQuerySearch_32"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/androidxiaojiang/article/details/52870781,BlogCommendFromQuerySearch_32"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/androidxiaojiang/article/details/52870781" target="_blank" title="安卓editview点击时打开软键盘，点击其他地方软键盘<em>消失</em>(<em>fragment</em>中)-androidxiaojiang的博客">安卓editview点击时打开软键盘，点击其他地方软键盘<em>消失</em>(<em>fragment</em>中)-androidxiaojiang的博客</a>
+                </dt>
+                <dd>上篇文章写了在activity中如何实现安卓editview点击时打开软键盘，点击其他地方软键盘<em>消失</em>，用到事件分发，重写dispatchTouchEvent处理事件，但是在<em>fragment</em>中没
+有dispatchTouchEvent，那么就需要在<em>fragment</em>所在的activity中用接口的方法实现。
+1、在activity中定义接口
+public interface MyTouchLis</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_99" data-pid="99" data-track-view='{"mod":"kp_popu_99-124","con":",,"}' data-track-click='{"mod":"kp_popu_99-124","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad33" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            placeholderId: "info_ad33",
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3539104\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/Lovebomb/article/details/52091447,BlogCommendFromQuerySearch_33"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/Lovebomb/article/details/52091447,BlogCommendFromQuerySearch_33"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/Lovebomb/article/details/52091447" target="_blank" title="处理ViewPager中的多个<em>fragment</em><em>切换</em>时,<em>fragment</em>保存状态！-Lovebomb的博客">处理ViewPager中的多个<em>fragment</em><em>切换</em>时,<em>fragment</em>保存状态！-Lovebomb的博客</a>
+                </dt>
+                <dd>在ViewPager+Fragment的时候经常遇到Fragment状态没保存而烦恼，
+
+
+比如ViewPager里面有4个Fragment，那么从A到B 在从B到C 然后从C回到A 那么A就好重新create绘制。
+那么我们来分析下，编码流程准备<em>数据</em>，然后编写一个Fragment<em>页面</em>适配器，然后设置适配器。显然在准备<em>数据</em>和设置填充<em>数据</em>(设置适配器)没必要处理，那么剩下的就只有处理适配器了</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/yersterday/article/details/35283283,BlogCommendFromQuerySearch_34"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/yersterday/article/details/35283283,BlogCommendFromQuerySearch_34"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/yersterday/article/details/35283283" target="_blank" title="Fragment<em>切换</em>的时候，保存<em>数据</em>状态（执行onResume)，不重新加载-云上de日子的专栏">Fragment<em>切换</em>的时候，保存<em>数据</em>状态（执行onResume)，不重新加载-云上de日子的专栏</a>
+                </dt>
+                <dd>import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RadioButton;
+import an</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/MrZhang_happy/article/details/53488908,BlogCommendFromQuerySearch_35"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/MrZhang_happy/article/details/53488908,BlogCommendFromQuerySearch_35"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/MrZhang_happy/article/details/53488908" target="_blank" title="ViewPager嵌套Fragment<em>切换</em>Fragment时不更新<em>页面</em>-_happyzhang的专栏">ViewPager嵌套Fragment<em>切换</em>Fragment时不更新<em>页面</em>-_happyzhang的专栏</a>
+                </dt>
+                <dd>问题：
+View Pager嵌套Fragment ，通过外部按钮点击<em>切换</em>不同的Fragment让View Pager显示不同界面。
+
+
+原因：
+在使用ViewPager+FragmentPagerAdapter时候，更新Fragment里<em>数据</em>是不起作用，FragmentPagerAdapter添加或减少Fragment时，前面的Fragment内容更新不起作用等等问题，有的做法是暴力删除</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/pengruiyu1/article/details/50056039,BlogCommendFromQuerySearch_36"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/pengruiyu1/article/details/50056039,BlogCommendFromQuerySearch_36"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/pengruiyu1/article/details/50056039" target="_blank" title="RadioGroup+Fragment实现<em>页面</em>之间的<em>切换</em>-pengruiyu1的博客">RadioGroup+Fragment实现<em>页面</em>之间的<em>切换</em>-pengruiyu1的博客</a>
+                </dt>
+                <dd>1.现在好多APP都用的这种方法,自己开发的时候也写了一个这样的框架,点击是可以实现<em>切换</em>的.先上效果图
+
+
+
+
+2.参考代码
+MainActivity 
+package com.ythl.shouyoufanli;
+
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.sup</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/yuzhiqiang_1993/article/details/76152454,BlogCommendFromQuerySearch_37"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/yuzhiqiang_1993/article/details/76152454,BlogCommendFromQuerySearch_37"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/76152454" target="_blank" title="<em>fragment</em>清除<em>页面</em><em>数据</em>（重新加载布局）-喻志强的博客"><em>fragment</em>清除<em>页面</em><em>数据</em>（重新加载布局）-喻志强的博客</a>
+                </dt>
+                <dd>上一篇博客介绍了如何解决Fragment重叠的问题，有需要的同学可以看一下，底部有demo下载。 
+直通车：完美解决Fragment重叠本篇博客我们来说一下怎么让<em>fragment</em>重新加载布局资源文件。以及要注意的问题。首先来说一下为什么有这个需求。比如，我有这么一个<em>页面</em>，如下图该<em>页面</em>要填写一大堆<em>数据</em>，然后点击提交会把当前<em>页面</em>的<em>数据</em>提交到服务器，提交完成后我想把当前<em>页面</em>已填写的<em>数据</em>给清除掉。怎么办呢？</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_100" data-pid="100" data-track-view='{"mod":"kp_popu_100-125","con":",,"}' data-track-click='{"mod":"kp_popu_100-125","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad38" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            placeholderId: "info_ad38",
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3539104\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/enkezhang/article/details/41549967,BlogCommendFromQuerySearch_38"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/enkezhang/article/details/41549967,BlogCommendFromQuerySearch_38"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/enkezhang/article/details/41549967" target="_blank" title="解决<em>fragment</em>中listview<em>数据</em>丢失问题-承諾、許卟哋">解决<em>fragment</em>中listview<em>数据</em>丢失问题-承諾、許卟哋</a>
+                </dt>
+                <dd>在<em>fragment</em> 中使用listview ，跳转到其他<em>页面</em>在返回时<em>数据</em>丢失了，解决方法如下：
+// <em>fragment</em>返回时<em>数据</em>列表丢失，因为listview其实已经换了，直接调用adapter的notifyDataSetChanged就没有对listview进行setAdapter;
+
+需要重新setadapter一下
+
+
+	private void notifyDataSetCha</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/holiday_ob/article/details/71108488,BlogCommendFromQuerySearch_39"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/holiday_ob/article/details/71108488,BlogCommendFromQuerySearch_39"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/holiday_ob/article/details/71108488" target="_blank" title="<em>fragment</em> 只有第一次加载<em>数据</em>其他时候不加载更新<em>数据</em>-holiday_ob的专栏"><em>fragment</em> 只有第一次加载<em>数据</em>其他时候不加载更新<em>数据</em>-holiday_ob的专栏</a>
+                </dt>
+                <dd><em>fragment</em>只有第一次加载<em>数据</em>其他时候不加载更新<em>数据</em>也就是说在<em>fragment</em>创建的时候加载<em>数据</em>，其他生命周期都加载<em>数据</em>。
+这种情况下，考虑使用hide和show来实现。可是hide和show的时候，一般情况下是都已经把<em>fragment</em>都事先加入add了。
+问题来了，事先加入后是把所有的<em>fragment</em>都提前创建好加载<em>数据</em>了，看不到的<em>fragment</em>也会执行，造成浪费。
+解决办法：
+1</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/Bob1993_Dev/article/details/46491993,BlogCommendFromQuerySearch_40"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/Bob1993_Dev/article/details/46491993,BlogCommendFromQuerySearch_40"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/Bob1993_Dev/article/details/46491993" target="_blank" title="我来谈谈ViewPager搭配FragmentAdapter的<em>数据</em>丢失问题-My life，my way">我来谈谈ViewPager搭配FragmentAdapter的<em>数据</em>丢失问题-My life，my way</a>
+                </dt>
+                <dd>先来一张碎片Fragment的生命周期图开开胃......
+首先呢，我来介绍一下：
+当我们使用Viewpager搭配FragmentPagerAdapter进行滑动的时候，某些情况下会发现前边几页自己手动产生的<em>数据</em>会被清空掉，对于这个碎片的滑动：
+它的出现和<em>消失</em>只是和Activity一样，是一个是否在栈顶的关系，当非栈顶碎片出现再栈顶的时候，它就会从碎片的onCreateView这个生命周期</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/AndOneee/article/details/52467713,BlogCommendFromQuerySearch_41"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/AndOneee/article/details/52467713,BlogCommendFromQuerySearch_41"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/AndOneee/article/details/52467713" target="_blank" title="关于横竖屏<em>切换</em>后Fragment发生重叠问题的解决-AndOneee的博客">关于横竖屏<em>切换</em>后Fragment发生重叠问题的解决-AndOneee的博客</a>
+                </dt>
+                <dd>在一个小项目中用到了ViewPager，所以在网上学习相关文章。
+看到了VeiwPager结合Fragment的使用，所以重新学习了Fragment的相关知识。
+
+
+在读了郭大神的博客之后顺手也做了一次，发现了一个小问题。
+在这里作为学习总结记录，如有错误请指出，感谢。
+
+
+
+原文：http://blog.csdn.net/guolin_blog/article/details/</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/omayyouhappy/article/details/47087303,BlogCommendFromQuerySearch_42"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/omayyouhappy/article/details/47087303,BlogCommendFromQuerySearch_42"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/omayyouhappy/article/details/47087303" target="_blank" title="Android Fragment <em>切换</em>多个界面 重叠问题 隐藏问题-你好邱林和的专栏">Android Fragment <em>切换</em>多个界面 重叠问题 隐藏问题-你好邱林和的专栏</a>
+                </dt>
+                <dd>接上一篇的博文：Android
+ <em>fragment</em> <em>切换</em>加载<em>数据</em>卡顿问题，想到的办法就是把<em>切换</em>之前的<em>fragment</em>hide隐藏起来，就可以解决卡顿的问题，不用重新new一个<em>fragment</em>。由于左侧悬浮菜单有差不多10多个菜单，如果每一个菜单<em>切换</em>的时候，都要隐藏其余所有的菜单，那就会导致代码十分的臃肿，以前隐藏的代码是这样的：
+				/*if (!openPositionFragment.</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_101" data-pid="101" data-track-view='{"mod":"kp_popu_101-126","con":",,"}' data-track-click='{"mod":"kp_popu_101-126","con":",,"}'><!--
+<script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+-->
+<div id="info_ad43" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            placeholderId: "info_ad33",
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3578438\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u012977203/article/details/53894142,BlogCommendFromQuerySearch_43"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u012977203/article/details/53894142,BlogCommendFromQuerySearch_43"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u012977203/article/details/53894142" target="_blank" title="ViewPager中嵌套Fragment，<em>切换</em>之后出现空白页没有加载<em>数据</em>的解决方法-u012977203的专栏">ViewPager中嵌套Fragment，<em>切换</em>之后出现空白页没有加载<em>数据</em>的解决方法-u012977203的专栏</a>
+                </dt>
+                <dd>问题描述： 
+ViewPager中嵌套ViewPager并用Fragment填充<em>数据</em>，但是在<em>切换</em>外部ViewPager之后，却没办法加载内部ViewPager中的<em>数据</em>。例如：当<em>切换</em>我界面之后再返回星座界面，就加载不了其中的<em>数据</em>。解决方案： 
+ adapter = new TabAdapter(getFragmentManager(), consName, mConsFragments); 
+adap</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u011647962/article/details/46847269,BlogCommendFromQuerySearch_44"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u011647962/article/details/46847269,BlogCommendFromQuerySearch_44"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u011647962/article/details/46847269" target="_blank" title="两层Fragment嵌套，外层Fragment<em>切换</em>时内层Fragment不显示内容-马彬彬的专栏">两层Fragment嵌套，外层Fragment<em>切换</em>时内层Fragment不显示内容-马彬彬的专栏</a>
+                </dt>
+                <dd>转眼，已经凌晨四点半了，凌晨四点半的五道口很安静，很美。</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/albb_/article/details/79877425,BlogCommendFromQuerySearch_45"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/albb_/article/details/79877425,BlogCommendFromQuerySearch_45"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/albb_/article/details/79877425" target="_blank" title="每次进入Fragment<em>页面</em>都刷新<em>数据</em>-albb_的博客">每次进入Fragment<em>页面</em>都刷新<em>数据</em>-albb_的博客</a>
+                </dt>
+                <dd>     今天写项目的时候有一个需求，就是每次进入到<em>fragment</em>这个<em>页面</em>都需要刷新一次<em>数据</em>。我的<em>页面</em>是这样的。当点击到档案的时候，就要刷新<em>数据</em>。直接上代码：定义一个bool值：private boolean isGetData = false;然后在重写<em>fragment</em>的onCreateAnimation()方法。 @Override
+    public Animation onCreate...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/yiqi7859/article/details/53953334,BlogCommendFromQuerySearch_46"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/yiqi7859/article/details/53953334,BlogCommendFromQuerySearch_46"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/yiqi7859/article/details/53953334" target="_blank" title="Android中横竖屏<em>切换</em>加载不同布局导致<em>fragment</em><em>数据</em>丢失的问题-yiqi7859的博客">Android中横竖屏<em>切换</em>加载不同布局导致<em>fragment</em><em>数据</em>丢失的问题-yiqi7859的博客</a>
+                </dt>
+                <dd>亲们好，求助大神，改了好长时间也没搞定这个问题，图上的四幅图依次为竖屏切横屏，再次切竖屏，再切横屏的效果，当再次<em>切换</em>竖屏的时候<em>数据</em>就没有显示了。我设置了android:configChanges="screenSize|orientation|keyboardHidden"，所以在横竖<em>切换</em>的时候只会执行
+  @Override
+    public void onConfigurationCh</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/jiang547860818/article/details/54348193,BlogCommendFromQuerySearch_47"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/jiang547860818/article/details/54348193,BlogCommendFromQuerySearch_47"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/jiang547860818/article/details/54348193" target="_blank" title="Fragment延迟加载<em>数据</em>，当<em>页面</em>可见时再发送请求-jiang547860818的博客">Fragment延迟加载<em>数据</em>，当<em>页面</em>可见时再发送请求-jiang547860818的博客</a>
+                </dt>
+                <dd>一 起因 
+我们在做应用的过程中，一个应用的界面可能是多个Fragment<em>切换</em>而成的，Fragment和ViewPager搭配使用时，当ViewPager显示一个<em>页面</em>时，它会把前后的<em>页面</em>也一起加载了，这样如果是需要发送请求的<em>页面</em>，这样如果用户都不看那个<em>页面</em>，它也发了请求，这样就很费流量了。所以如果在每次应用启动的时候就去加载大量的网络<em>数据</em>(假设你的每个Fragment都需要加载网络<em>数据</em>，你也可以理解</dd>
+              </dl>
+                  <dl class="bbs_feed bbs_feed_ad_box" style="padding-bottom: 0">
+                    <div id="kp_box_102" data-pid="102" data-track-view='{"mod":"kp_popu_102-127","con":",,"}' data-track-click='{"mod":"kp_popu_102-127","con":",,"}'><script src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div id="info_ad48" class="mediav_ad" ></div>
+<script>
+        NEWS_FEED({
+            w: 920,
+            h: 66,
+            showid : 'wc4SIC',
+            placeholderId: "info_ad48",
+            inject : 'define',
+             onFail : function (){
+                document.writeln("<script type=\"text\/javascript\">(function() {var s = \"_\" + Math.random().toString(36).slice(2);document.write(\'<div style=\"\" id=\"\' + s + \'\"><\/div>\');(window.slotbydup = window.slotbydup || []).push({id: \"u3578468\",container:  s});})();<\/script>");},
+            define : {
+                displayImage : true,
+                imagePosition : 'right',
+                imageBorderRadius : 10,
+                imageWidth: 80,
+                imageHeight: 60,
+                imageFill : 'clip',
+                displayTitle : true,
+                titleFontSize: 16,
+                titleFontColor: '#3d3d3d',
+                titleFontFamily : 'Microsoft Yahei',
+                titleFontWeight: 'normal',
+                titlePaddingTop : 0,
+                titlePaddingRight : 0,
+                titlePaddingBottom : 13,
+                titlePaddingLeft : 0,
+                displayDesc : true,
+                descFontSize: 14,
+                descFontColor: '#8e959a',
+                descFontFamily : 'Microsoft Yahei',
+                paddingTop : 5,
+                paddingRight : 0,
+                paddingBottom : 5,
+                paddingLeft : 0,
+                backgroundColor: '#fff',
+                hoverColor: '#f44444'
+            }
+        }) 
+</script></div>
+                  </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/wylboom/article/details/52166373,BlogCommendFromQuerySearch_48"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/wylboom/article/details/52166373,BlogCommendFromQuerySearch_48"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/wylboom/article/details/52166373" target="_blank" title="Android横屏开发的老梗---Fragment<em>切换</em>混乱重叠问题-wylboom的博客">Android横屏开发的老梗---Fragment<em>切换</em>混乱重叠问题-wylboom的博客</a>
+                </dt>
+                <dd>今天工作开发之时遇到的一个老梗，老恶心了，好在下班前解决了。今晚按耐不住拔掉老梗舒畅的心和大家分享一下，希望大家以后在横屏开发碰到类似的问题可以快速解决。
+Android横屏开发的老梗---Fragment<em>切换</em>混乱重叠问题。首先和大家回顾一下Activity的生命周期，如下图：
+
+
+Activity的创建会先调用OnCreat()，启动OnStar()，然后显示在界面上OnResume()</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/omayyouhappy/article/details/46982791,BlogCommendFromQuerySearch_49"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/omayyouhappy/article/details/46982791,BlogCommendFromQuerySearch_49"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/omayyouhappy/article/details/46982791" target="_blank" title="Android <em>fragment</em> <em>切换</em>加载<em>数据</em>卡顿问题-你好邱林和的专栏">Android <em>fragment</em> <em>切换</em>加载<em>数据</em>卡顿问题-你好邱林和的专栏</a>
+                </dt>
+                <dd>接着上一篇项目的进度，上一篇讲了如何利用<em>fragment</em>来实现下拉菜单，公用菜单，以实现<em>切换</em>主界面<em>数据</em>的功能，这时候遇到的问题是：使用了<em>fragment</em>的<em>切换</em>界面方法，但加载的<em>数据</em>太多，用户从一个界面<em>切换</em>到这个界面的时候，至少有一两秒的卡顿，这是无法忍受的，代码如下：
+private void initOpenMenuItem(View popupWindow_view) {
+		Drawab</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/only_you_zj/article/details/80713061,BlogCommendFromQuerySearch_50"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/only_you_zj/article/details/80713061,BlogCommendFromQuerySearch_50"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/only_you_zj/article/details/80713061" target="_blank" title="SmartRefreshLayout 下拉刷新上拉加载在多个Fragment中有时候会失效（个人笔记）-only_you_zj的博客">SmartRefreshLayout 下拉刷新上拉加载在多个Fragment中有时候会失效（个人笔记）-only_you_zj的博客</a>
+                </dt>
+                <dd>在new 多个Fragment 在frament 中使用SmartRefreshLayout  上拉加载下拉刷新 ，但是<em>切换</em>几次之后 在切回来发现 onLoadmore（） onRefresh（）都失效了 我是在onCreateView 注册监听 感觉理解可能是当前界面frament的监听被另一个frament的监听覆盖了 所以  当前的onLoadmore（） onRefresh（）都失效了 本...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/ForgetFormerly/article/details/51701133,BlogCommendFromQuerySearch_51"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/ForgetFormerly/article/details/51701133,BlogCommendFromQuerySearch_51"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/ForgetFormerly/article/details/51701133" target="_blank" title="如何让ViewPager+Fragment来回<em>切换</em>时<em>数据</em>不重复加载-ForgetFormerly的博客">如何让ViewPager+Fragment来回<em>切换</em>时<em>数据</em>不重复加载-ForgetFormerly的博客</a>
+                </dt>
+                <dd>设计思路
+本人在设计一款App时，使用了ViewPager+Fragment的模式，一开始设计时为了避免重复加载<em>数据</em>，就使用了ViewPager的setoffscreenPageLimit(int Limit)的方式，直接加载所有的<em>页面</em>，后来<em>数据</em>较多时发现这样会占用大量的空间，用户可能不会去翻看其它<em>数据</em>，那么那些<em>数据</em>加载出来有必要吗？但是如果不一次性加载怎么滑动回来那不是又要重新加载？经过思考，</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u011506413/article/details/51830859,BlogCommendFromQuerySearch_52"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u011506413/article/details/51830859,BlogCommendFromQuerySearch_52"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u011506413/article/details/51830859" target="_blank" title="Fragment<em>切换</em>重新与不重新加载界面-u011506413的博客">Fragment<em>切换</em>重新与不重新加载界面-u011506413的博客</a>
+                </dt>
+                <dd>Fragment<em>切换</em>重新或不重新加载界面
+在实现开发应用时，有时Fragment<em>切换</em>时界面的信息需要更新，则需要重新加载，否则不需要；
+下面实现了默认的<em>fragment</em> 、 不重新加载 与 重新加载的方法，只需你自己的fragmeng和 放<em>fragment</em>的布局id;
+注：是import android.app.Fragment包的；
+
+如果想换成v4包的请注意其他的包类型统一，并修改：</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/jiujiu28/article/details/50544623,BlogCommendFromQuerySearch_53"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/jiujiu28/article/details/50544623,BlogCommendFromQuerySearch_53"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/jiujiu28/article/details/50544623" target="_blank" title="Android使用<em>fragment</em><em>切换</em>，界面间传值操作-Mcdull28的专栏">Android使用<em>fragment</em><em>切换</em>，界面间传值操作-Mcdull28的专栏</a>
+                </dt>
+                <dd>安卓开发中，界面<em>切换</em>使用多的就是运用<em>fragment</em>，那么，如果下一个界面需要上一个界面的值该怎么办呢，本文就是解决这个问题的。也是做个记录，供自己以后方便使用。
+    FragmentManager <em>fragment</em>Manager = getSupportFragmentManager();
+    FragmentTransaction transaction = <em>fragment</em>Mana</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://h5.youzan.com/v2/goods/2xj1ce2nukrcv,BlogCommendFromBook_54"}' data-track-click='{"mod":"popu_645","con":",https://h5.youzan.com/v2/goods/2xj1ce2nukrcv,BlogCommendFromBook_54"}'>
+                <dt>
+                  <a href="https://h5.youzan.com/v2/goods/2xj1ce2nukrcv" target="_blank" title="包邮：Spring Boot 2精髓：从构建小系统到架构分布式大系统--">包邮：Spring Boot 2精髓：从构建小系统到架构分布式大系统--</a>
+                </dt>
+                <dd>Spring Boot 2</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/marsmmeng/article/details/48270889,BlogCommendFromQuerySearch_55"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/marsmmeng/article/details/48270889,BlogCommendFromQuerySearch_55"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/marsmmeng/article/details/48270889" target="_blank" title="自定义toast、toast重复显示、<em>切换</em>界面toast自动<em>消失</em>-marsmmeng的博客">自定义toast、toast重复显示、<em>切换</em>界面toast自动<em>消失</em>-marsmmeng的博客</a>
+                </dt>
+                <dd>分分钟搞定自定义Toast</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_34884729/article/details/72844791,BlogCommendFromQuerySearch_56"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_34884729/article/details/72844791,BlogCommendFromQuerySearch_56"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_34884729/article/details/72844791" target="_blank" title="RecyclerView 在几个分页<em>fragment</em>中<em>切换</em>时会出现滑动,和一打开recyclerview的时候就自动滑到到底部-qq_34884729的博客">RecyclerView 在几个分页<em>fragment</em>中<em>切换</em>时会出现滑动,和一打开recyclerview的时候就自动滑到到底部-qq_34884729的博客</a>
+                </dt>
+                <dd>因为我是一个RecyclerView嵌套了几个RecyclerView，而其中有大量<em>数据</em>的RecyclerView 列表会出现种问题。因为用了比较复杂的getItemViewType()，处理起来比一般的麻烦。后来看了一个例子启发了我，有人在viewpager的时候出现这些问题。
+
+
+
+
+解决方法：跟view focus有关
+在最外层的控件加入：
+android:focusable=</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_28934205/article/details/52921120,BlogCommendFromQuerySearch_57"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_28934205/article/details/52921120,BlogCommendFromQuerySearch_57"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_28934205/article/details/52921120" target="_blank" title="Fragment<em>切换</em> （状态栏一体化）状态栏闪烁问题-魑魅魍魉9527">Fragment<em>切换</em> （状态栏一体化）状态栏闪烁问题-魑魅魍魉9527</a>
+                </dt>
+                <dd>Fragment<em>切换</em> （状态栏一体化）状态栏闪烁问题</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u012515223/article/details/48492135,BlogCommendFromQuerySearch_58"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u012515223/article/details/48492135,BlogCommendFromQuerySearch_58"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u012515223/article/details/48492135" target="_blank" title="Android - 多个Fragment<em>切换</em>不重新实例化-Mystra">Android - 多个Fragment<em>切换</em>不重新实例化-Mystra</a>
+                </dt>
+                <dd>问题:  
+在项目中需要进行Fragment的<em>切换</em>，可以使用replace()方法来替换Fragment:    public void switchContent(Fragment <em>fragment</em>) {
+        if(mContent != <em>fragment</em>) {
+            mContent = <em>fragment</em>;
+            mFragmentMan.begi</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/ClingtoM/article/details/51699359,BlogCommendFromQuerySearch_59"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/ClingtoM/article/details/51699359,BlogCommendFromQuerySearch_59"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/ClingtoM/article/details/51699359" target="_blank" title="Viewpager+Fragment重复滑动后出现view重叠问题-小夫的博客">Viewpager+Fragment重复滑动后出现view重叠问题-小夫的博客</a>
+                </dt>
+                <dd>viewpager+<em>fragment</em>这个组合用起来非常爽呀~~~
+但有时候会有点奇葩的问题需要注意
+我就遇到了viewpager反复滑动，之前加载的<em>fragment</em>被重建了，但view没有delete掉，于是就view覆盖上去了，就出来各种奇葩的问题了。
+
+
+想来想去，百度谷歌一齐上，大概有一些方法可以解决这个问题~~~
+
+
+1、viewpager.setOffscreenPage</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_32399235/article/details/51437193,BlogCommendFromQuerySearch_60"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_32399235/article/details/51437193,BlogCommendFromQuerySearch_60"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_32399235/article/details/51437193" target="_blank" title="解决<em>fragment</em>与viewpager一起使用时<em>fragment</em>中的listview<em>数据</em>出现重复-qq_32399235的博客">解决<em>fragment</em>与viewpager一起使用时<em>fragment</em>中的listview<em>数据</em>出现重复-qq_32399235的博客</a>
+                </dt>
+                <dd><em>fragment</em>同viewpager一起使用：
+viewpager.setOffscreenPageLimit(设置缓存<em>页面</em>的个数);/</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u014019974/article/details/72867557,BlogCommendFromQuerySearch_61"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u014019974/article/details/72867557,BlogCommendFromQuerySearch_61"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u014019974/article/details/72867557" target="_blank" title="android <em>fragment</em>的<em>页面</em>返回刷新<em>数据</em>-u014019974的专栏">android <em>fragment</em>的<em>页面</em>返回刷新<em>数据</em>-u014019974的专栏</a>
+                </dt>
+                <dd>判断<em>fragment</em>的隐藏，没有隐藏则请求<em>数据</em></dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/SpiritWing1/article/details/39099925,BlogCommendFromQuerySearch_62"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/SpiritWing1/article/details/39099925,BlogCommendFromQuerySearch_62"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/SpiritWing1/article/details/39099925" target="_blank" title="FragmentTabHost<em>切换</em>Fragment时不销毁或重新实例化Fragment-SpiritWing1的专栏">FragmentTabHost<em>切换</em>Fragment时不销毁或重新实例化Fragment-SpiritWing1的专栏</a>
+                </dt>
+                <dd>开发时发现在使用FragmentTabHost<em>切换</em>Fragment时，qian yi ge</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/jiang547860818/article/details/53120650,BlogCommendFromQuerySearch_63"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/jiang547860818/article/details/53120650,BlogCommendFromQuerySearch_63"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/jiang547860818/article/details/53120650" target="_blank" title="Android ViewPager+Fragment<em>切换</em>显示不出的问题-jiang547860818的博客">Android ViewPager+Fragment<em>切换</em>显示不出的问题-jiang547860818的博客</a>
+                </dt>
+                <dd>今天遇到一个问题，之前也有遇到过，但是没有做笔记，时间一久也就忘了，这次项目又遇到了这个问题，却没有想起之前的解决方法，所以把他写到博客记录一下，以便不再犯同样的错误，android基础学得不是很扎实，问题很简单，不要见怪啊。好了，废话少说，下面说正题。我们在使用ViewPager+Fragment做<em>切换</em>的时候，可能我们在编写<em>数据</em>适配器的时候会这样写  class MyFragmentPagerAd</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_21727627/article/details/60870529,BlogCommendFromQuerySearch_64"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_21727627/article/details/60870529,BlogCommendFromQuerySearch_64"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_21727627/article/details/60870529" target="_blank" title="<em>fragment</em> viewpager和tablayout相互嵌套内容不显示和组件不显示问题-qq_21727627的博客"><em>fragment</em> viewpager和tablayout相互嵌套内容不显示和组件不显示问题-qq_21727627的博客</a>
+                </dt>
+                <dd>1.在ViewPagerAdapter中 <em>fragment</em>是如何查找和关联的呢,:点进super(<em>fragment</em>Manager) 看instantiateItem方法看如图:
+
+
+
+getItemId其实就是他的位置,makeFragmentName返回的是containerID和position组合的字符窜,方法如下:
+
+
+
+而mFragmentManager不是getFrag</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/xwx617/article/details/78071074,BlogCommendFromQuerySearch_65"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/xwx617/article/details/78071074,BlogCommendFromQuerySearch_65"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/xwx617/article/details/78071074" target="_blank" title="ViewPager+Fragment+ListView重新加载后<em>数据</em>源重复问题的解决方法-轻风起自远东">ViewPager+Fragment+ListView重新加载后<em>数据</em>源重复问题的解决方法-轻风起自远东</a>
+                </dt>
+                <dd>今天在项目中遇到了一个问题，我的主页Activity是以ViewPager+Fragment进行构建的，其中有两个Fragment又包含了ListView，正常情况下这两个Fragment的界面如下： 
+ 
+但是当我从主页Activity跳转到另一个Activity，之后再返回主页Activity时，发现第一个包含ListView的Fragment的界面变成了下面这样： 
+ 
+很明显这是ListVi</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/a704755096/article/details/48031913,BlogCommendFromQuerySearch_66"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/a704755096/article/details/48031913,BlogCommendFromQuerySearch_66"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/a704755096/article/details/48031913" target="_blank" title="Android Fragment <em>切换</em>时布局重叠-seven的博客">Android Fragment <em>切换</em>时布局重叠-seven的博客</a>
+                </dt>
+                <dd>用Fragment模拟Tab<em>页面</em>，正常情况不会发生<em>切换</em>时重叠问题，但是当应用在后台运行时，设置更改语言选项或系统不小心强制关闭后，再进入应用会同时显示多个Tab内容，UI发生重叠。
+这是因为再次回到这个app的时候，通过onCreate中的参数savedInstanceState恢复了之前的<em>fragment</em>。此时的FragmentTransaction中的相当于又再次add了<em>fragment</em>进去的，之前保存的<em>fragment</em>也还在。hide()和show()方法对之前保存的<em>fragment</em>已经失效了。所以出</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/tongcpp/article/details/41978751,BlogCommendFromQuerySearch_67"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/tongcpp/article/details/41978751,BlogCommendFromQuerySearch_67"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/tongcpp/article/details/41978751" target="_blank" title="友盟<em>页面</em>统计 - 关于Viewpager中的Fragment的生命周期-plus plus Tong">友盟<em>页面</em>统计 - 关于Viewpager中的Fragment的生命周期-plus plus Tong</a>
+                </dt>
+                <dd>Activity和Fragment各自理论上的生命周期
+
+Activity的生命周期是较为经典也最清晰的，在此不表；Fragment从出现到广泛运用也有一段时间了，其标准生命周期也仅比Activity多出一些流程，如onCreateView();
+
+
+Activity和Fragment在实际编码中必定是结合出现的，表现为Activity作为容器，装载有一个或若干个Fragment；装载多</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/wukong1981/article/details/42198217,BlogCommendFromQuerySearch_68"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/wukong1981/article/details/42198217,BlogCommendFromQuerySearch_68"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/wukong1981/article/details/42198217" target="_blank" title="避免Fragment在<em>切换</em>时总是重新onCreateView的问题-wukong1981的专栏">避免Fragment在<em>切换</em>时总是重新onCreateView的问题-wukong1981的专栏</a>
+                </dt>
+                <dd>在使用多个Fragment来回<em>切换</em>的时候，总是要重新创建view，结果每次都要重加载<em>数据</em>，无端端让应用变卡，体验很糟糕。
+试验了几种方法，目前发现又两个方法不错，可以避免重创建的问题。闲话少叙，正文开始：
+Solution One：
+原理：缓存已经创建过的view，下次如果发现有，就不再重新创建。注意要判断viewgroup的parent问题。
+示例代码：
+    private Vie</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/zhan10001/article/details/54585563,BlogCommendFromQuerySearch_69"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/zhan10001/article/details/54585563,BlogCommendFromQuerySearch_69"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/zhan10001/article/details/54585563" target="_blank" title="Fragment快速<em>切换</em>导致闪退的解决方法-zhan10001的博客">Fragment快速<em>切换</em>导致闪退的解决方法-zhan10001的博客</a>
+                </dt>
+                <dd>频繁调用事务
+
+getFragmentManager().beginTransaction().replace(R.id.cont, woDeFragment).commit();
+或者add方法时，会导致APP闪退。
+
+解决方法：
+在调用之前判断是否已经被加载：
+
+if (!woDeFragment.isAdded()) {
+    getFragmentManager().be</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/liu6244091/article/details/50976230,BlogCommendFromQuerySearch_70"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/liu6244091/article/details/50976230,BlogCommendFromQuerySearch_70"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/liu6244091/article/details/50976230" target="_blank" title="Activity中ScrollView Fragment<em>切换</em>界面跳动问题-liu6244091的专栏">Activity中ScrollView Fragment<em>切换</em>界面跳动问题-liu6244091的专栏</a>
+                </dt>
+                <dd>场景：Activity里面ScrollView套了几个Fragment，Tab选项卡<em>切换</em>
+处理方式：在ScrollView的根View添加下面三行加粗的属性即可
+
+
+        android:id="@+id/refresh_scrollview"
+        android:layout_width="match_parent"
+        android:layout</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/flowingflying/article/details/12749403,BlogCommendFromQuerySearch_71"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/flowingflying/article/details/12749403,BlogCommendFromQuerySearch_71"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/flowingflying/article/details/12749403" target="_blank" title="Pro Android学习笔记（四一）：Fragment（6）：<em>数据</em>保留-愷风（Wei）的专栏">Pro Android学习笔记（四一）：Fragment（6）：<em>数据</em>保留-愷风（Wei）的专栏</a>
+                </dt>
+                <dd>在Fragment的生命周期中的Bundle savedInstanceState是用于保存<em>fragment</em>状态，而不是<em>fragment</em>的相关<em>数据</em>。我们今天要解决的问题是，通过<em>fragment</em>，横竖屏<em>切换</em>时，如何保留关键<em>数据</em>。
+当屏幕进行<em>切换</em>时，activity将退出，重新create，我们希望屏幕转向时，仍能看到原来的<em>数据</em>。诚然有很多方式，例如在app中，通过其他静态参数保留，通过本地存储保留</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/nnmmbb/article/details/68924405,BlogCommendFromQuerySearch_72"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/nnmmbb/article/details/68924405,BlogCommendFromQuerySearch_72"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/nnmmbb/article/details/68924405" target="_blank" title="TabLayout的ViewPager中的Fragment点击刷新的问题-周刚的专栏">TabLayout的ViewPager中的Fragment点击刷新的问题-周刚的专栏</a>
+                </dt>
+                <dd>使用Fragment的时候难免会遇到想在视力可见或不可见之中做些操作，此时通常想到类似Activity的onResume()和onPause()方法。Fragment中也确实也这两个方法，然而亲测support.v4.Fragment中的这两个方法其实是执行的Activity的方法，也就是只有在Activity的可视性发发生变化时才会调用。从网上又找到类似的方法：
+setUserVisibleH</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/zhe_ge_sha_shou/article/details/79726253,BlogCommendFromQuerySearch_73"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/zhe_ge_sha_shou/article/details/79726253,BlogCommendFromQuerySearch_73"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/zhe_ge_sha_shou/article/details/79726253" target="_blank" title="Fragment<em>切换</em><em>页面</em>RecyclerView自动滚动问题-这个杀手不太累的博客">Fragment<em>切换</em><em>页面</em>RecyclerView自动滚动问题-这个杀手不太累的博客</a>
+                </dt>
+                <dd>在<em>切换</em>Fragment<em>页面</em>时，发现RecyclerView会自动滚动，解决方法： 
+在RecyclerView的父控件上加入：
+
+android:focusable=&quot;true&quot;
+android:focusableInTouchMode=&quot;true&quot;</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/qq_28058443/article/details/51519663,BlogCommendFromQuerySearch_74"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/qq_28058443/article/details/51519663,BlogCommendFromQuerySearch_74"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/qq_28058443/article/details/51519663" target="_blank" title="viewpager+<em>fragment</em>来回滑动<em>fragment</em>重新加载的简单解决办法-Jayrun_z的博客">viewpager+<em>fragment</em>来回滑动<em>fragment</em>重新加载的简单解决办法-Jayrun_z的博客</a>
+                </dt>
+                <dd>最近的一个项目用到了viewpager加<em>fragment</em>，但是来回滑动的时候会出现重新联网加载的现象，仔细研究了发现其中的原因，在这里分享一下。
+
+
+起初比较迷惑，让后就在<em>fragment</em>的生命周期中挨个log了一下最后发现在FragmentPagerAdapter默认会保存的三个item也就是当前的一个，前一个和后一个。滑动过程中适配器默认会把前一个之前的item destroy掉，所以当</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/Adrian24/article/details/52892404,BlogCommendFromQuerySearch_75"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/Adrian24/article/details/52892404,BlogCommendFromQuerySearch_75"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/Adrian24/article/details/52892404" target="_blank" title="Android在<em>切换</em>Fragment过程中，如何避免重新加载-Adrian24的博客">Android在<em>切换</em>Fragment过程中，如何避免重新加载-Adrian24的博客</a>
+                </dt>
+                <dd>这是公司的新项目，MainActivity中是集合了多个Fragment，同时，Fragment 中又用ViewPager 嵌套了多个Fragment
+所以在MainActivity中，为了避免滑动冲突，通过FragManager 进行Fragment 的<em>切换</em>操作
+但是，同时也产生了一个问题。这里先卖个关子，我们先看下Frament的生命周期图
+
+这是一张很常见的周期图，选自网络。
+现在</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/oAiTan/article/details/51165648,BlogCommendFromQuerySearch_76"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/oAiTan/article/details/51165648,BlogCommendFromQuerySearch_76"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/oAiTan/article/details/51165648" target="_blank" title="tabFragment<em>切换</em>避免<em>页面</em>重叠-bug的博客">tabFragment<em>切换</em>避免<em>页面</em>重叠-bug的博客</a>
+                </dt>
+                <dd>viewpager+<em>fragment</em>也可以实现<em>切换</em><em>fragment</em>，但是这次使用的是一个FrameLayout去<em>切换</em>不同的<em>fragment</em>
+
+
+采用的是add hide的办法去隐藏<em>fragment</em>和显示<em>fragment</em>，使用replace方法是销毁上一个<em>fragment</em>，去加载另一个<em>fragment</em>,这种方法google都不是推荐的
+用replace容易出现<em>页面</em>重叠的问题，而且我们去<em>切换</em>f</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/guo807015563/article/details/42081799,BlogCommendFromQuerySearch_77"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/guo807015563/article/details/42081799,BlogCommendFromQuerySearch_77"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/guo807015563/article/details/42081799" target="_blank" title="关于Viewpager中的Fragment 滑动时保存状态的问题-guo807015563的专栏">关于Viewpager中的Fragment 滑动时保存状态的问题-guo807015563的专栏</a>
+                </dt>
+                <dd>之前遇到了在ViewPager中使用Fragment的情况，结果遇到了一个问题就是当viewPager划过去，再滑动回来后之前的<em>fragment</em>又回到了初始化的状态。所以就研究了一下。网上搜了一下，大部分都是说这个FragmentPagerAdapter和FragmentStatePagerAdapter的。总结下来，主要是FragmentPagerAdapter会将每一个生成的<em>fragment</em>都</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u014749334/article/details/38587923,BlogCommendFromQuerySearch_78"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u014749334/article/details/38587923,BlogCommendFromQuerySearch_78"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u014749334/article/details/38587923" target="_blank" title="解决android横竖屏<em>切换</em><em>数据</em>丢失的问题-u014749334的专栏">解决android横竖屏<em>切换</em><em>数据</em>丢失的问题-u014749334的专栏</a>
+                </dt>
+                <dd>每次<em>切换</em>屏幕系统都要调yong</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/awy1988/article/details/80590734,BlogCommendFromQuerySearch_79"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/awy1988/article/details/80590734,BlogCommendFromQuerySearch_79"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/awy1988/article/details/80590734" target="_blank" title="解决重写FragmentTabHost后，屏幕<em>切换</em>时Fragment显示空白的问题-awy1988的专栏">解决重写FragmentTabHost后，屏幕<em>切换</em>时Fragment显示空白的问题-awy1988的专栏</a>
+                </dt>
+                <dd>问题背景：公司的App首页架构采用了FragmentTabHost + Fragment的结构。之前为了解决每次<em>切换</em> tab 时，Fragment不重新加载的问题，重写了FragmentTabHost类，重写的类核心代码如下： private FragmentTransaction doTabChanged(String tabId, FragmentTransaction ft) {
+     ...</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/xi_yan01/article/details/73330481,BlogCommendFromQuerySearch_80"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/xi_yan01/article/details/73330481,BlogCommendFromQuerySearch_80"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/xi_yan01/article/details/73330481" target="_blank" title="<em>fragment</em><em>切换</em>出现空白页-xi_yan01的博客"><em>fragment</em><em>切换</em>出现空白页-xi_yan01的博客</a>
+                </dt>
+                <dd>近期遇到一个bug，找了好久的原因，最后终于找到，在此记录一下
+app的大体框架是由tab+<em>fragment</em>来组成的，就是类似于app 的底部有五个按钮，没点击一个按钮就会<em>切换</em>一个<em>fragment</em>，我们是在mainActiivty中进行<em>fragment</em>的<em>切换</em>的，我们用的add show方法 // 开启一个Fragment事务
+        transaction = <em>fragment</em>Manag</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/androidwubo/article/details/71191092,BlogCommendFromQuerySearch_81"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/androidwubo/article/details/71191092,BlogCommendFromQuerySearch_81"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/androidwubo/article/details/71191092" target="_blank" title="Android点击Home键后<em>fragment</em>重新加载问题、重叠问题-Wubo的博客">Android点击Home键后<em>fragment</em>重新加载问题、重叠问题-Wubo的博客</a>
+                </dt>
+                <dd>现象：
+同事的手机是OPPO-R9S，这个手机的垃圾回收真是吊炸天，activity中四个<em>fragment</em>，点击home键后再进入，显示退出时候的<em>fragment</em>，在<em>切换</em>其他<em>fragment</em>的时候，像是放在了下面不显示了，其他的手机没有发现这个问题
+原因：
+找了一些资料看，我觉得应该是，当Fragment长久不使用，系统进行回收，FragmentActivity调用onSaveInstanc</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/gxp1182893781/article/details/69389928,BlogCommendFromQuerySearch_82"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/gxp1182893781/article/details/69389928,BlogCommendFromQuerySearch_82"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/gxp1182893781/article/details/69389928" target="_blank" title="Android中Fragment嵌套Fragment，<em>切换</em>Fragment时不显示视图的原因及解决方法-泥巴城 的博客">Android中Fragment嵌套Fragment，<em>切换</em>Fragment时不显示视图的原因及解决方法-泥巴城 的博客</a>
+                </dt>
+                <dd>项目中经常会用到ViewPager配合Fragment进行滑动视图的实现，经常配合FragmentPagerAdapter一起使用。
+当需要在Fragment（姑且叫做A）中嵌套另外一个Fragment（姑且叫做B）的时候，第一次启动这两个Fragment没有问题，但是当从B<em>切换</em>回A时，有时会遇到A中本该显示的视图没有显示，而是一片空白！而代码本身是没有任何错误的。
+会不会很郁闷？
+Frag</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/ha000/article/details/53160341,BlogCommendFromQuerySearch_83"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/ha000/article/details/53160341,BlogCommendFromQuerySearch_83"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/ha000/article/details/53160341" target="_blank" title="Android Fragment<em>切换</em>时的动画效果-阿依土鳖王子の博客">Android Fragment<em>切换</em>时的动画效果-阿依土鳖王子の博客</a>
+                </dt>
+                <dd>非常酷炫的<em>fragment</em><em>切换</em>动画效果
+
+
+
+
+
+下载地下：http://download.csdn.net/detail/ha000/9682459</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/duxiaoguojifan517/article/details/80974102,BlogCommendFromQuerySearch_84"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/duxiaoguojifan517/article/details/80974102,BlogCommendFromQuerySearch_84"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/duxiaoguojifan517/article/details/80974102" target="_blank" title="解决Fragment+ViewPager<em>切换</em>刷新<em>数据</em>问题！-duxiaoguojifan517的博客">解决Fragment+ViewPager<em>切换</em>刷新<em>数据</em>问题！-duxiaoguojifan517的博客</a>
+                </dt>
+                <dd>只需要在想要刷新的Fragment重写以下方法@Override
+public void setUserVisibleHint(boolean isVisibleToUser) {
+    super.setUserVisibleHint(isVisibleToUser);    //加载<em>数据</em>}</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/u013320868/article/details/51445000,BlogCommendFromQuerySearch_85"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/u013320868/article/details/51445000,BlogCommendFromQuerySearch_85"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/u013320868/article/details/51445000" target="_blank" title="用FragmentTabHost管理Fragment，实现<em>页面</em><em>切换</em>-implements">用FragmentTabHost管理Fragment，实现<em>页面</em><em>切换</em>-implements</a>
+                </dt>
+                <dd>现在大多数的应用的主<em>页面</em>都有点类似新浪微博的主<em>页面</em>，下方是一个导航栏，点击导航栏会进行<em>页面</em>的<em>切换</em>。从技术实现上来说，这并不复杂，可以有很多方法来实现，比如用radiogroup和<em>fragment</em>配合就可以。可是这样我们并不是我们想要的，因为这样写需要我们自己写不少逻辑去控制。俗话说不会偷懒的程序员不是好程序员，所以我们希望系统给我们提供一个可以对Fragment管理的类，我们不用关心太多的逻辑，只</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/yichuanyanyu1991/article/details/78874992,BlogCommendFromQuerySearch_86"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/yichuanyanyu1991/article/details/78874992,BlogCommendFromQuerySearch_86"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/yichuanyanyu1991/article/details/78874992" target="_blank" title="Android DialogFragment在屏幕旋转之后，输入框内的文字<em>消失</em>的原因-我心似明月的博客">Android DialogFragment在屏幕旋转之后，输入框内的文字<em>消失</em>的原因-我心似明月的博客</a>
+                </dt>
+                <dd>Android DialogFragment在屏幕旋转之后，输入框内的文字<em>消失</em></dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/l331258747/article/details/51181756,BlogCommendFromQuerySearch_87"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/l331258747/article/details/51181756,BlogCommendFromQuerySearch_87"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/l331258747/article/details/51181756" target="_blank" title="android 控件 <em>fragment</em> <em>切换</em>优化 混乱-l331258747的专栏">android 控件 <em>fragment</em> <em>切换</em>优化 混乱-l331258747的专栏</a>
+                </dt>
+                <dd>在项目中需要进行Fragment的<em>切换</em>，一直都是用replace()方法来替换Fragment：然后总感觉<em>切换</em>的时候有些卡顿，原来的代码
+  /**
+   * <em>切换</em><em>页面</em>，这里采用回调
+   * 
+   */
+  public void switchFragment(Fragment f) {
+    if (f == null)
+      return;
+    FragmentTransac</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/mufaith/article/details/39930199,BlogCommendFromQuerySearch_88"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/mufaith/article/details/39930199,BlogCommendFromQuerySearch_88"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/mufaith/article/details/39930199" target="_blank" title="Dialog<em>切换</em>屏幕不<em>消失</em>-宁静致远">Dialog<em>切换</em>屏幕不<em>消失</em>-宁静致远</a>
+                </dt>
+                <dd>设置Dialog在横竖屏<em>切换</em>时后不<em>消失</em></dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/AugusAccount/article/details/54924816,BlogCommendFromQuerySearch_89"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/AugusAccount/article/details/54924816,BlogCommendFromQuerySearch_89"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/AugusAccount/article/details/54924816" target="_blank" title="ViewPager+Fragment如何控制界面显示时才加载<em>数据</em>-AugusAccount的博客">ViewPager+Fragment如何控制界面显示时才加载<em>数据</em>-AugusAccount的博客</a>
+                </dt>
+                <dd>ViewPager+Fragment的模式再常见不过了，以国民应用微信为例，假设微信也是ViewPager+Fragment的实现方式，那表现形式上就是一个ViewPager管理了四个Fragment，左右滑动来回<em>切换</em>。但是ViewPager有一个奇葩的特性叫：预加载，比如打开微信，首先看到的是第一个Tab（微信），但事实上第二个Tab（通讯录）已经加载好了。当选择第二个Tab（通讯录），第三个T</dd>
+              </dl>
+              <dl class="bbs_feed" data-track-view='{"mod":"popu_645","con":",https://blog.csdn.net/csdn_aiyang/article/details/78054709,BlogCommendFromQuerySearch_90"}' data-track-click='{"mod":"popu_645","con":",https://blog.csdn.net/csdn_aiyang/article/details/78054709,BlogCommendFromQuerySearch_90"}'>
+                <dt>
+                  <a href="https://blog.csdn.net/csdn_aiyang/article/details/78054709" target="_blank" title="Android ViewPager Fragment <em>切换</em>刷新<em>数据</em>，解决生命周期只走一次的问题-csdn_aiyang的博客">Android ViewPager Fragment <em>切换</em>刷新<em>数据</em>，解决生命周期只走一次的问题-csdn_aiyang的博客</a>
+                </dt>
+                <dd>前言Activity的生命周期都应该熟悉，Fragment其标准生命周期也仅比Activity多出一些流程，如onCreateView()，比较好理解。了解Activity、Fragment的基础知识可以先转头去看下我的博文：Android Fragment项目中使用及生命周期分析认识ViewPager<em>页面</em>加载机制ViewPager的<em>页面</em>缓存机制默认是两个，如果有三个Fragment，实际上三个都...</dd>
+              </dl>
+            <div class="dl_no_more" style="font-size:14px; color:red; text-align:center;padding-top:10px; ">我们是很有底线的</div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="right-box" id="rightList">
+    <div class="flex-box">
+      <div class="third-list-box" id="thirdList">
+        <div class="pop-right">
+        </div>
+        <script src="https://g.csdnimg.cn/recommend/1.1.7/recommend.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                window.csdn.recommendSide({
+                    contentBox: "recommend",
+                    postBox: $(".pop-right"),
+                    query:'Fragment切换页面时数据消失',
+                    popu:'728',
+                    size:50
+                });
+            });
+        </script>
+      </div>
+      <div class="persion_article"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+      var rightList = $("#rightList");
+      var rightListH = rightList.height();
+      var beginWidth = $("#bbs_title_bar").width();
+      var beginLeft = $("#bbs_title_bar").offset().left;
+      var beginTop = $("#bbs_title_bar").offset().top;
+      var tttop = beginTop + rightListH - $(window).height();
+
+      $(window).resize(function(){
+          beginLeft = $("#bbs_title_bar").offset().left;
+          beginTop = $("#bbs_title_bar").offset().top;
+          fixedThird()
+      })
+      $(window).scroll(function(){
+          fixedThird()
+      })
+      function fixedThird(){
+          rightListH = rightList.height();
+          tttop = beginTop + rightListH - $(window).height();
+          if($(window).scrollTop() >= tttop){
+            var left = beginLeft + beginWidth;
+            rightList.css({
+                'position':'fixed',
+                'bottom':'0px',
+                'left':left+'px',
+                'margin-top': '0px'
+            })
+          }else{
+              rightList.removeAttr('style')
+          }
+      }
+  });
+</script>
+
+
+
+<!-- 对联广告 -->
+<div id="ad_left" style="display:none">
+  <div>
+    <ins data-revive-zoneid="56" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<script type="text/javascript">  
+  $(function(){
+      if ($(parent.window).width() >= 1280) {
+          parent.$('#ad_left').show();
+      }
+  });
+</script>
+  </div>
+</div>
+<div id="ad_right" style="display:none">
+  <div>
+    <ins data-revive-zoneid="57" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<script type="text/javascript">    
+    $(function(){
+        if ($(parent.window).width() >= 1280) {
+            parent.$('#ad_right').show();
+        }
+    });
+</script>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    window.onresize = function(){
+      if($(parent.window).width() <= 1280){
+        $('#ad_right').hide();
+        $('#ad_left').hide();
+      } else {
+          $('#ad_right').show();
+          $('#ad_left').show();
+      }
+    };
+      if ($(parent.window).width() >= 1280) {
+          $('#ad_right').show();
+          $('#ad_left').show();
+      }
+  });
+
+</script>
+
+
+
+
+  <script type="text/javascript" src="https://csdnimg.cn/release/bbs/dist/js/apps/bbsMin-b20d2fdb42.js"></script>
+  <link rel="stylesheet" href="//csdnimg.cn/pubfooter/css/pub_footer_1.0.3.css">
+  <script src="//csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript"></script>
+  
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+ 
+</style>
+
+    <script>
+      $(function(){
+          CSDN.activeAttLink('.user_material_bg');
+          posts_page_js._form_page();
+      });
+  </script>
+    <div id="bbsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            <h4 id="bbsModalLabel" class="modal-title">New message</h4>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+  <script data-isfootertrack="false" src="//csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" type="text/javascript"></script>
+  <script type="text/javascript" src="https://csdnimg.cn/release/bbs/dist/js/icon/iconfont_common-a4b5db6e1f.js"></script>
+  <script type="text/javascript" src="https://csdnimg.cn/release/bbs/dist/js/apps/markitUpJs-715144984b.js"></script>
+  <script type="text/javascript" src="//g.csdnimg.cn/preview-img/1.0.0/preview-img.js"></script>
+  <script src="//g.csdnimg.cn/login-box/1.0.2/login-box.js?20181116" type="text/javascript"></script>
+
+  <script language="javascript" type="text/javascript" src="https://ads.csdn.net/js/async_new.js"></script>
+  <script src="https://g.csdnimg.cn/track/1.2.1/track.js" type="text/javascript"></script>
+  <script src="https://g.csdnimg.cn/check-adblock/1.0.8/check-adblock.js" type="text/javascript"></script>
+  <script src="https://g.csdnimg.cn/login-box/1.0.2/login-box.js?20181116" type="text/javascript"></script>
+</body>
+</html>
